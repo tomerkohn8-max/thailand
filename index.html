@@ -764,8 +764,8 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 .xcard p{margin:6px 0 0;font-size:14px;line-height:1.45;opacity:.95}
 .xcard .xa{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
 .xcard .meta{font-size:12px;padding:5px 10px;border-radius:99px;background:rgba(12,30,80,.25);border:1px solid rgba(255,255,255,.25)}
-.xcard.top{border-color:rgba(255,215,150,.75)}
-.xcard.top .xn{background:linear-gradient(160deg,#ffe2a8,#f2b95f)}
+.xcard.must{border-color:rgba(255,215,150,.75)}
+.xcard.must .xn{background:linear-gradient(160deg,#ffe2a8,#f2b95f)}
 
 /* map motion */
 .route-glow{fill:none;stroke:#fff;stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(255,255,255,.95));pointer-events:none}
@@ -822,6 +822,50 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 .fold.nye-fold .ft b{font-size:19px}
 .fold.nye-fold .ft b::after{content:" 2027";font-family:var(--f-latin);font-weight:300;color:#ffe2a8}
 .fold.nye-fold>summary::before{background:radial-gradient(240px circle at 85% 20%,rgba(255,236,190,.55),transparent 60%)}
+
+/* ---------- plan, transfers, food, today, converter ---------- */
+.plist{display:grid;gap:10px}
+.pday,.trc{padding:14px 16px;border-radius:22px}
+.pdh,.trh{display:flex;align-items:center;gap:12px}
+.pdd{flex:none;width:58px;text-align:center;padding:6px 0;border-radius:14px;background:rgba(12,30,80,.25);border:1px solid rgba(255,255,255,.2)}
+.pdd b{display:block;font-family:var(--f-latin);font-weight:300;font-size:20px;line-height:1.1}
+.pdd small{display:block;font-size:10.5px;opacity:.85}
+.pdt{flex:1;min-width:0}.pdt b{display:block;font-size:16.5px;font-weight:500}.pdt small{font-size:12.5px;opacity:.85}
+.pday ul{margin:10px 0 0;padding-inline-start:84px;display:grid;gap:5px;font-size:14px;line-height:1.4}
+.pday.past{opacity:.55}
+.pday.cur{border-color:#fff}
+.pday.nye{background:linear-gradient(150deg,rgba(255,226,168,.32),rgba(60,40,120,.3) 60%,rgba(242,185,95,.25));border-color:rgba(255,220,160,.8)}
+.trr{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;font-size:14.5px}
+.trr b{font-weight:500}
+.trr i{width:1.5px;height:10px;background:rgba(255,255,255,.6);margin-inline-start:6px}
+.htag.todo{background:rgba(255,140,120,.28);border-color:rgba(255,200,190,.7)}
+.trc .kv:first-of-type{margin-top:10px}
+.foodh{margin:18px 0 6px;font-size:18px;font-weight:500}
+.kv.food>span{display:flex;flex-direction:column;gap:2px;opacity:1;font-size:14.5px}
+.kv.food>span b{font-weight:500}.kv.food>span small{font-size:12.5px;opacity:.82}
+.today{margin-top:18px;padding:18px;border-radius:28px}
+.today[hidden]{display:none}
+.tdh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.tdk{font-size:12.5px;opacity:.85}
+.today h2{margin:2px 0 0;font-size:24px}
+.tdw{font-family:var(--f-latin);font-weight:300;font-size:40px;line-height:1;text-align:center}
+.tdw small{display:block;font-size:11.5px;font-family:var(--f-body);opacity:.85}
+.tdb{margin:12px 0 4px;padding:12px 14px;border-radius:18px;background:rgba(12,30,80,.22);border:1px solid rgba(255,255,255,.2)}
+.tdb b{font-weight:500;font-size:16px}
+.tdb ul{margin:6px 0 0;padding-inline-start:18px;display:grid;gap:4px;font-size:14px}
+.today .kv a{color:inherit}
+.cv{display:flex;align-items:center;gap:10px;margin-top:6px}
+.cv label{font-size:13px;opacity:.85}
+.cv .field{flex:1;min-width:0;font-size:20px;font-family:var(--f-latin);direction:ltr;text-align:right}
+.cvo{font-family:var(--f-latin);font-weight:300;font-size:30px;min-width:96px;text-align:left}
+.cvq{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+/* clocks off: the Thai time is in the top bar */
+.clocks{display:none}
+
+/* real light: dawn and golden hour in gold, peach and orange (no pink) */
+:root[data-sky="dawn"]{--sky-top:#2c4f9a;--sky-mid:#4f74b8;--sky-low:#c99566;--aura-1:#3d8fc0;--aura-2:#5a6fd0;--aura-3:#ffb07a;--aura-4:#ffd9a8}
+:root[data-sky="golden"]{--sky-top:#24519f;--sky-mid:#3c6fb8;--sky-low:#c48a52;--aura-1:#1b8fb0;--aura-2:#4a5bd0;--aura-3:#ffa25a;--aura-4:#ffd28a}
+:root[data-sky="dusk"]{--sky-top:#1a3478;--sky-mid:#2b4f9c;--sky-low:#8a6a7a;--aura-3:#ff8a4c;--aura-4:#e8a565}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
@@ -851,6 +895,7 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <div class="hint">החליקו בין הגלויות · לחיצה קופצת ליעד</div>
   </div>
 
+  <section class="glass today" id="today" hidden aria-live="polite"></section>
   <div class="glass install" id="install" hidden>
     <div class="fi"><img src="icon-180.png" alt="" width="42" height="42"></div>
     <div class="it"><b>להוסיף כאפליקציה למסך הבית</b><span id="installHow">באייפון: בספארי לוחצים על כפתור השיתוף ואז "הוספה למסך הבית".</span></div>
@@ -876,13 +921,6 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     </div>
   </section>
 
-  <section id="alerts">
-    <div class="eyebrow">Reminders</div>
-    <h2>התראות ותזכורות</h2>
-    <div class="alerts" id="alertList"></div>
-    <button class="more" id="alertMore" type="button">להציג את כל התזכורות</button>
-    <p class="wxmeta">הכפתור "ליומן" פותח את Google Calendar עם האירוע. כך הטלפון ישלח לכם התראה גם כשהאתר סגור.</p>
-  </section>
 
   <details class="fold" id="fold-flights"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg></span><span class="ft"><b>טיסות</b><small>LY85 · PG279 · LY86</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="flights">
@@ -896,6 +934,22 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <div class="eyebrow">Hotels</div>
     <h2>מלונות</h2>
     <div class="hlist" id="hotelList"></div>
+  </section>
+  </div></details>
+  <details class="fold" id="fold-plan"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M7 14h4M7 17h7"/></svg></span><span class="ft"><b>תוכנית יום־יום</b><small>מה עושים בכל יום, מ-22.12 עד 6.1</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="plan">
+    <div class="eyebrow">Day by day</div>
+    <h2>תוכנית יום־יום</h2>
+    <div class="plist" id="planList"></div>
+    <p class="anote">זו הצעה. רוצים להזיז משהו? כתבו לתומר והתוכנית תתעדכן.</p>
+  </section>
+  </div></details>
+  <details class="fold" id="fold-transfers"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M5 17h14M7 17l-1-5h12l-1 5M8 12l1.5-4h5L16 12"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/></svg></span><span class="ft"><b>מעברים בין יעדים</b><small>הסעות, מונית, מעבורות וטיסת פנים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="transfers">
+    <div class="eyebrow">Getting around</div>
+    <h2>מעברים בין יעדים</h2>
+    <div class="plist" id="trList"></div>
+    <p class="anote">המחירים והזמנים משוערים. כשמזמינים, מסמנים בתיקייה "לפני שטסים" והכרטיס כאן משתנה ל"הוזמן".</p>
   </section>
   </div></details>
 
@@ -937,6 +991,7 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <h2>אטרקציות לכל יעד</h2>
     <div class="atabs" id="xtabs" role="tablist" aria-label="יעדים"></div>
     <div class="xlist" id="xlist" role="tabpanel"></div>
+    <div class="glass icard foodbox" id="foodList"></div>
     <p class="anote">כל כפתור "ניווט" פותח את המקום ב-Google Maps. כדאי לבדוק שעות פתיחה לפני שיוצאים.</p>
   </section>
   </div></details>
@@ -1016,6 +1071,12 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
         <p class="inote">ביטוח נסיעות: שלחו לתומר את מספר החירום של חברת הביטוח ואת מספר הפוליסה, והם יופיעו כאן.</p>
       </div>
       <div class="glass icard">
+        <h3>ממיר מטבע</h3>
+        <div class="cv"><label for="cvTHB">באט</label><input class="field num" id="cvTHB" type="number" inputmode="decimal" min="0" value="100"><span class="cvo num" id="cvILS">₪10</span></div>
+        <div class="cvq"><button type="button" class="chip" data-thb="50">฿50</button><button type="button" class="chip" data-thb="300">฿300</button><button type="button" class="chip" data-thb="1000">฿1,000</button><button type="button" class="chip" data-thb="5000">฿5,000</button></div>
+        <p class="inote" id="cvRate"></p>
+      </div>
+      <div class="glass icard">
         <h3>טיפים שימושיים</h3>
         <ul class="tips">
           <li><b>כסף:</b> בערך ₪1 = ฿10. בכל משיכה מכספומט גובים עמלה של כ-฿220, אז עדיף למשוך סכום גדול פעם אחת.</li>
@@ -1051,7 +1112,14 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <div class="cards" id="pcards"></div>
   </section>
   </div></details>
-  <details class="fold" id="fold-prep"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M4 6h2M4 12h2M4 18h2M9 6h11M9 12h11M9 18h11"/></svg></span><span class="ft"><b>לפני שטסים</b><small>מה נשאר לסגור · רשימת אריזה</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <details class="fold" id="fold-prep"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M4 6h2M4 12h2M4 18h2M9 6h11M9 12h11M9 18h11"/></svg></span><span class="ft"><b>לפני שטסים</b><small>תזכורות · מה נשאר לסגור · רשימת אריזה</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="alerts">
+    <div class="eyebrow">Reminders</div>
+    <h2>התראות ותזכורות</h2>
+    <div class="alerts" id="alertList"></div>
+    <button class="more" id="alertMore" type="button">להציג את כל התזכורות</button>
+    <p class="wxmeta">הכפתור "ליומן" פותח את Google Calendar עם האירוע. כך הטלפון ישלח לכם התראה גם כשהאתר סגור.</p>
+  </section>
   <section id="todo">
     <div class="eyebrow">Still to book</div>
     <h2>מה נשאר לסגור</h2>
@@ -1270,8 +1338,9 @@ function art(kind,night){
 
 /* ---------- sky by Thai hour ---------- */
 function setSky(){
-  const h=partsIn("Asia/Bangkok",new Date()).hour;
-  const s=(h>=6&&h<16)?"day":(h>=16&&h<19)||(h===5)?"dusk":"night";
+  const p=partsIn("Asia/Bangkok",new Date()),m=p.hour*60+p.minute;
+  /* southern Thailand, late Dec: sunrise ~06:40, sunset ~18:15 */
+  const s=m<5*60+50?"night":m<7*60+20?"dawn":m<16*60+45?"day":m<17*60+50?"golden":m<18*60+55?"dusk":"night";
   document.documentElement.dataset.sky=s;
   return s;
 }
@@ -1734,7 +1803,7 @@ renderBudget();
 /* ---------- nav highlight ---------- */
 const navs=[...document.querySelectorAll(".nav a")];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navs.forEach(a=>a.classList.toggle("on",a.dataset.nav===e.target.id))}})},{rootMargin:"-45% 0px -50% 0px"});
-["count","alerts","map","flights","weather","cards","albums","nye","todo","pack","info","attractions","hotels"].forEach(id=>io.observe(document.getElementById(id)));
+["count","alerts","map","flights","weather","cards","albums","nye","todo","pack","info","attractions","hotels","plan","transfers"].forEach(id=>io.observe(document.getElementById(id)));
 
 /* ---------- shared features (light up when the viewer supports them) ---------- */
 /* ---------- albums per destination ---------- */
@@ -1812,7 +1881,7 @@ bangkok:[
 let XCUR=(()=>{const n=Date.now(),s=STOPS.find(x=>n>=dateOnly(x.from)&&n<dateOnly(x.to));return s?s.id:"phuket"})();
 function renderAttr(){
   $("#xtabs").innerHTML=STOPS.map(s=>`<button class="atab" type="button" role="tab" data-x="${s.id}" aria-selected="${s.id===XCUR}">${s.he}${s.id==="krabi2"?" נוי":""}<small>${(ATTR[s.id]||[]).length} מקומות</small></button>`).join("");
-  $("#xlist").innerHTML=(ATTR[XCUR]||[]).map((a,i)=>`<article class="glass xcard${a.top?" top":""}"><span class="xn">${i+1}</span><div><h4>${esc(a.he)}<small>${esc(a.en)}</small></h4><p>${esc(a.d)}</p>
+  $("#xlist").innerHTML=(ATTR[XCUR]||[]).map((a,i)=>`<article class="glass xcard${a.top?" must":""}"><span class="xn">${i+1}</span><div><h4>${esc(a.he)}<small>${esc(a.en)}</small></h4><p>${esc(a.d)}</p>
     <div class="xa"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(a.q)}" target="_blank" rel="noopener">ניווט</a><span class="meta">${esc(a.m)}</span>${a.top?'<span class="meta">חובה</span>':""}</div></div></article>`).join("")}
 $("#xtabs").addEventListener("click",e=>{const b=e.target.closest("[data-x]");if(!b)return;XCUR=b.dataset.x;renderAttr()});
 $("#stopinfo").addEventListener("click",e=>{const b=e.target.closest("[data-attr]");if(!b)return;XCUR=b.dataset.attr;renderAttr();$("#attractions").scrollIntoView({behavior:reduce?"auto":"smooth"})});
@@ -1880,6 +1949,66 @@ renderHotels();
   function tick(){const ms=T0-Date.now();if(ms>0){const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5);sm.textContent=d>0?`עוד ${d} ימים ו-${h} שעות לחצות בקופיפי`:`עוד ${h} שעות ו-${Math.floor(ms%36e5/6e4)} דקות לחצות!`}else sm.textContent="שנה טובה! 2027 התחילה בקופיפי"}
   tick();setInterval(tick,30000);
   const now=Date.now();if(now>=Date.parse("2026-12-31T00:00:00+07:00")&&now<Date.parse("2027-01-02T00:00:00+07:00")){const c=$("#count");if(c&&c.parentNode)c.parentNode.insertBefore(f,c.nextSibling);f.open=true;dispatchEvent(new Event("resize"))}})();
+/* ---------- day plan, transfers, food, today ---------- */
+const PLAN=[
+ {d:"2026-12-22",stop:"",t:"טסים",items:["23:35 · המראה LY85 מנתב״ג לבנגקוק (להגיע ב-20:35)"]},
+ {d:"2026-12-23",stop:"phuket",t:"נוחתים בתאילנד",items:["15:45 · נחיתה בסוברנבומי","19:40 · PG279 לפוקט, נחיתה ב-21:15","הסעה לקאטה וצ׳ק-אין ב-BluEco"]},
+ {d:"2026-12-24",stop:"phuket",t:"יום חוף בקאטה",items:["בוקר וצהריים בחוף קאטה נוי","שקיעה בתצפית שלושת המפרצים","ערב: אוכל רחוב בקאטה"]},
+ {d:"2026-12-25",stop:"phuket",t:"מקדשים, העיר העתיקה ושקיעה",items:["בוקר: הבודהה הגדול ומקדש צ׳לונג","צהריים: העיר העתיקה של פוקט","שקיעה בכף פרומטפ"]},
+ {d:"2026-12-26",stop:"krabi",t:"עוברים לקראבי",items:["צ׳ק-אאוט מ-BluEco עד 12:00","נסיעה לאאו נאנג, כשעתיים וחצי","ערב: הטיילת של אאו נאנג"]},
+ {d:"2026-12-27",stop:"krabi",t:"ריילי ופרה נאנג",items:["לונגטייל מאאו נאנג בבוקר","פרה נאנג וטיפוס קצר לתצפית","שקיעה בריילי ווסט"]},
+ {d:"2026-12-28",stop:"krabi",t:"סיור ארבעת האיים",items:["יום בסירה: פודה, צ׳יקן איילנד, טאפ","מעבר מהחדר לבונגלו"]},
+ {d:"2026-12-29",stop:"phiphi",t:"מעבורת לפי פי",items:["צ׳ק-אאוט ומעבורת מאאו נאנג","14:00 · צ׳ק-אין ב-Phitarom","שקיעה בנקודת התצפית"]},
+ {d:"2026-12-30",stop:"phiphi",t:"מאיה ביי ופילה",items:["סיור סירה מוקדם: מאיה ביי ולגונת פילה","אחר הצהריים: מנוחה בלונג ביץ׳"]},
+ {d:"2026-12-31",stop:"phiphi",t:"סילבסטר",items:["בוקר: האי במבו","ערב: ארוחה מוקדמת ונקודת מפגש","00:00 · 2027 על החוף בקופיפי"],nye:1},
+ {d:"2027-01-01",stop:"phiphi",t:"שנה טובה",items:["בוקר עצל, פותחים את קפסולת הזמן","מאנקי ביץ׳ בקיאק"]},
+ {d:"2027-01-02",stop:"krabi2",t:"חוזרים לקראבי",items:["צ׳ק-אאוט עד 11:00 ומעבורת לקראבי","צ׳ק-אין ב-Wanarom","ערב: שוק הלילה של קראבי טאון"]},
+ {d:"2027-01-03",stop:"bangkok",t:"טסים לבנגקוק",items:["טיסה מקראבי לבנגקוק (עוד לא הוזמנה)","אחר הצהריים: שוק צ׳טוצ׳אק"]},
+ {d:"2027-01-04",stop:"bangkok",t:"מקדשים ונהר",items:["בוקר מוקדם: הארמון המלכותי","וואט פו","שקיעה מול וואט ארון"]},
+ {d:"2027-01-05",stop:"bangkok",t:"צ׳יינה טאון ושווקים",items:["יום חופשי בעיר","ערב: אוכל רחוב ביאוורט או ג׳וד פיירס"]},
+ {d:"2027-01-06",stop:"bangkok",t:"יום אחרון",items:["קניות אחרונות","17:00 · בסוברנבומי","20:00 · LY86 הביתה"]}];
+const TRANSFERS=[
+ {id:"t-hkt",d:"2026-12-23",from:"שדה התעופה של פוקט",to:"BluEco, קאטה",how:"הסעה מוזמנת או מונית",dur:"כשעה",price:"בערך ฿800–1,000",tip:"נוחתים ב-21:15, אז כדאי להזמין הסעה מראש."},
+ {id:"t-kr",d:"2026-12-26",from:"קאטה, פוקט",to:"Frank Ao Nang, קראבי",how:"מונית פרטית או מיניוואן",dur:"כשעתיים וחצי",price:"מונית בערך ฿2,500–3,000",tip:"יוצאים אחרי ארוחת הבוקר, צ׳ק-אאוט עד 12:00."},
+ {id:"b-pp1",d:"2026-12-29",from:"אאו נאנג",to:"קופיפי (Tonsai Pier)",how:"מעבורת, בדרך כלל עם איסוף מהמלון",dur:"שעה וחצי עד שעתיים",price:"בערך ฿450–650 לאדם",tip:"בעונה כדאי להזמין מראש. באי משלמים אגרת כניסה קטנה."},
+ {id:"b-pp2",d:"2027-01-02",from:"קופיפי",to:"נמל קראבי, ומשם Wanarom",how:"מעבורת ואז מונית",dur:"כשעתיים בסך הכול",price:"בערך ฿400–500 לאדם",tip:"צ׳ק-אאוט עד 11:00, יש מעבורות בבוקר."},
+ {id:"f-kbv",d:"2027-01-03",from:"שדה התעופה קראבי (KBV)",to:"בנגקוק (DMK או BKK)",how:"טיסת פנים",dur:"כשעה ועשרים",price:"תלוי בחברה",tip:"עוד לא הוזמן. AirAsia, Thai Lion ו-Thai Smile טסות בקו."},
+ {id:"t-bkk",d:"2027-01-06",from:"המלון בבנגקוק",to:"סוברנבומי",how:"מונית או Grab",dur:"45 דקות עד שעה וחצי",price:"בערך ฿400–600 כולל כבישי אגרה",tip:"יוצאים עד 15:30 כדי להגיע ב-17:00. הפקקים קשים."}];
+const FOOD={
+ phuket:[{n:"One Chun",w:"מטבח דרום תאילנדי ביתי בעיר העתיקה",q:"One Chun Phuket Old Town"},{n:"Raya Restaurant",w:"קארי סרטנים מפורסם, בעיר העתיקה",q:"Raya Restaurant Phuket"},{n:"The Boathouse",w:"ארוחת ערב מיוחדת על חוף קאטה",q:"The Boathouse Kata Beach"}],
+ krabi:[{n:"שוק הלילה של אאו נאנג",w:"אוכל רחוב זול וטעים",q:"Ao Nang Landmark Night Market"},{n:"Lae Lay Grill",w:"מסעדה על הגבעה עם נוף לשקיעה",q:"Lae Lay Grill Ao Nang"},{n:"Krua Thara",w:"פירות ים טריים, מקום מקומי",q:"Krua Thara Krabi"}],
+ phiphi:[{n:"Papaya Restaurant",w:"אוכל תאילנדי פשוט וזול בכפר",q:"Papaya Restaurant Phi Phi"},{n:"דוכני רוטי בכפר",w:"קינוח בננה ונוטלה בערב",q:"Tonsai Village Phi Phi"}],
+ krabi2:[{n:"שוק הלילה צ׳או פא",w:"דוכני אוכל ליד הנהר בקראבי טאון",q:"Chao Fah Night Market Krabi"}],
+ bangkok:[{n:"Jay Fai",w:"אומלט סרטנים עם כוכב מישלן. התור ארוך",q:"Raan Jay Fai Bangkok"},{n:"Thipsamai",w:"הפאד תאי המפורסם בעיר",q:"Thipsamai Pad Thai"},{n:"Wattana Panich",w:"מרק אטריות בקר שמתבשל עשרות שנים",q:"Wattana Panich Bangkok"}]};
+const dd=iso=>{const d=new Date(iso+"T12:00:00+07:00");return{wd:fmt("Asia/Bangkok",{weekday:"long"}).format(d),dm:fmt("Asia/Bangkok",{day:"numeric",month:"numeric"}).format(d)}};
+const thaiToday=()=>{const q=new URLSearchParams(location.search).get("day");if(q&&/^\d{4}-\d{2}-\d{2}$/.test(q))return q;return new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Bangkok",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())};
+const stopName=id=>{const s=STOPS.find(x=>x.id===id);return s?s.he+(id==="krabi2"?" נוי":""):""};
+function renderPlan(){const today=thaiToday();
+  $("#planList").innerHTML=PLAN.map((p,i)=>{const x=dd(p.d),past=p.d<today,cur=p.d===today;
+    return `<article class="glass pday${cur?" cur":""}${past?" past":""}${p.nye?" nye":""}" id="day-${p.d}"><div class="pdh"><div class="pdd"><b class="num">${x.dm}</b><small>${x.wd}</small></div><div class="pdt"><b>${p.t}</b><small>${i===0?"יום 0":"יום "+i}${p.stop?" · "+stopName(p.stop):""}</small></div>${cur?'<span class="htag now">היום</span>':""}</div>
+      <ul>${p.items.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></article>`}).join("")}
+function renderTransfers(){$("#trList").innerHTML=TRANSFERS.map(t=>{const x=dd(t.d),ok=!!DONE[t.id];
+  return `<article class="glass trc"><div class="trh"><div class="pdd"><b class="num">${x.dm}</b><small>${x.wd}</small></div><div class="trr"><b>${esc(t.from)}</b><i aria-hidden="true"></i><b>${esc(t.to)}</b></div><span class="htag ${ok?"ok":"todo"}">${ok?"הוזמן ✓":"לסגור"}</span></div>
+    <div class="kv"><span>איך</span><b>${esc(t.how)}</b></div><div class="kv"><span>כמה זמן</span><b>${esc(t.dur)}</b></div><div class="kv"><span>מחיר משוער</span><b>${esc(t.price)}</b></div><p class="hnote">${esc(t.tip)}</p></article>`}).join("")}
+function renderFood(){const id=XCUR,list=FOOD[id]||[];const box=$("#foodList");if(!box)return;
+  box.innerHTML=list.length?`<h3 class="foodh">איפה לאכול ב${stopName(id)}</h3>`+list.map(f=>`<div class="kv food"><span><b>${esc(f.n)}</b><small>${esc(f.w)}</small></span><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(f.q)}" target="_blank" rel="noopener">ניווט</a></div>`).join(""):""}
+function renderToday(){const today=thaiToday(),i=PLAN.findIndex(p=>p.d===today),box=$("#today");if(!box)return;
+  if(i<1){box.hidden=true;return}box.hidden=false;const p=PLAN[i],nx=PLAN[i+1],x=dd(p.d);
+  const h=HOTELS.find(h=>today>=h.in&&today<h.out),co=HOTELS.find(h=>h.out===today);const s=STOPS.find(z=>z.id===p.stop),av=s?climAvg(s):null;
+  const at=(ATTR[p.stop]||[]).filter(a=>a.top).slice(0,2);
+  box.innerHTML=`<div class="tdh"><div><span class="tdk">היום · ${x.wd} ${x.dm}</span><h2>יום ${i} מתוך ${PLAN.length-1} · ${stopName(p.stop)}</h2></div>${av?`<div class="tdw num">${av.hi}°<small>${av.rain}% גשם</small></div>`:""}</div>
+    <div class="tdb"><b>${p.t}</b><ul>${p.items.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>
+    ${co?`<div class="kv"><span>צ׳ק-אאוט היום</span><b>${esc(co.name)}${co.tout?` · עד <span class="num">${co.tout}</span>`:""}</b></div>`:""}
+    ${h?`<div class="kv"><span>ישנים הלילה ב</span><b dir="ltr">${esc(h.name||h.area)}</b></div>`:""}
+    ${at.length?`<div class="kv"><span>שווה היום</span><b>${at.map(a=>`<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(a.q)}" target="_blank" rel="noopener">${esc(a.he)}</a>`).join(" · ")}</b></div>`:""}
+    ${nx?`<div class="kv"><span>מחר</span><b>${esc(nx.t)}</b></div>`:""}`}
+(function conv(){const inp=$("#cvTHB"),out=$("#cvILS"),rt=$("#cvRate");if(!inp)return;let rate=0.1;
+  const upd=()=>{const v=parseFloat(inp.value);out.textContent=isFinite(v)?"₪"+(v*rate).toLocaleString("he-IL",{maximumFractionDigits:v*rate<10?1:0}):"₪0";rt.textContent=`฿100 ≈ ₪${(100*rate).toFixed(1)}`};
+  inp.addEventListener("input",upd);document.querySelectorAll("[data-thb]").forEach(b=>b.addEventListener("click",()=>{inp.value=b.dataset.thb;upd()}));upd();
+  fetch("https://open.er-api.com/v6/latest/THB").then(r=>r.ok?r.json():null).then(j=>{if(j&&j.rates&&j.rates.ILS){rate=j.rates.ILS;upd()}}).catch(()=>{})})();
+renderPlan();renderTransfers();renderToday();
+{const _ra=renderAttr;renderAttr=function(){_ra();renderFood()};renderFood()}
+setInterval(()=>{renderToday();renderPlan()},10*60*1000);
 (async function shared(){
   const ok=true;
   // outside Claude (a normal web host) the page can fetch the real forecast itself
