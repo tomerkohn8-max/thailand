@@ -774,6 +774,12 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 .traveler .tc{fill:#fff;stroke:#1f4f9e;stroke-width:2;vector-effect:non-scaling-stroke}
 .mapctl .tourbtn{background:linear-gradient(160deg,#ffe2a8,#f2b95f);border-color:rgba(255,236,200,.95);color:var(--ink);font-weight:500}
 .mapctl .tourbtn[aria-pressed="true"]{background:rgba(20,35,59,.82);color:#fff;border-color:rgba(20,35,59,.82)}
+
+/* banner fully hidden when closed; top bar slides away while scrolling down */
+.push{visibility:hidden;transform:translateY(calc(-100% - env(safe-area-inset-top,0px) - 40px));transition:transform .6s cubic-bezier(.2,.9,.2,1.1),visibility 0s linear .6s}
+.push.show{visibility:visible;transform:none;transition:transform .6s cubic-bezier(.2,.9,.2,1.1)}
+.top{transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s}
+.top.away{transform:translateY(calc(-100% - 24px - env(safe-area-inset-top,0px)));opacity:0}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
@@ -1335,8 +1341,8 @@ renderAlerts();setInterval(renderAlerts,60000);
   const next=REMINDERS.map(r=>({...r,ms:Date.parse(r.t)})).filter(r=>r.ms>now-2*36e5).sort((a,b)=>a.ms-b.ms)[0];
   let msg,when;
   const openCount=TODO.flatMap(g=>g.items).filter(i=>!i.fixed).length;
-  if(next&&next.ms-now<14*DAY){msg=next.what+(next.sub?". "+next.sub:"");when=relTime(next.ms)}
-  else{msg=`נשארו ${openCount} דברים לסגור לפני הטיול: מלון בבנגקוק, מעבורות וטיסה מקראבי לבנגקוק.`;when=relTime(T.dep)+" טסים"}
+  if(next&&next.ms-now<3*DAY){msg=next.what+(next.sub?". "+next.sub:"");when=relTime(next.ms)}
+  else return;
   const key="push-"+(next?next.id:"todo")+"-"+new Date().toDateString();
   if(store(key))return;
   $("#pushMsg").textContent=msg;$("#pushWhen").textContent=when;
@@ -1907,6 +1913,11 @@ document.getElementById("installBtn").addEventListener("click",async()=>{if(!def
 document.getElementById("installX").addEventListener("click",()=>{box.hidden=true;try{localStorage.setItem("tb-install-x","1")}catch(e){}});
 })();
 </script>
+<script>
+(function(){const top=document.querySelector(".top");if(!top)return;let last=scrollY,raf=0;
+addEventListener("scroll",()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;const y=scrollY,d=y-last;if(Math.abs(d)<8)return;top.classList.toggle("away",d>0&&y>160);last=y})},{passive:true})})();
+</script>
+
 
 
 </body></html>
