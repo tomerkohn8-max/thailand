@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta property="og:type" content="website"><meta property="og:url" content="https://tomerkohn8-max.github.io/thailand/"><meta property="og:title" content="תומר וברית בתאילנד"><meta property="og:description" content="22.12.26–07.01.27 · פוקט, קראבי, קופיפי ובנגקוק"><meta property="og:image" content="https://tomerkohn8-max.github.io/thailand/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#4f8fdc"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>תומר וברית בתאילנד</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -672,6 +672,44 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
 .lb .lbbot{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);left:0;right:0;display:flex;justify-content:center;gap:10px}
 .lb button{border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.16);color:#fff;border-radius:999px;padding:9px 16px;font-size:14px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .lb .cnt{font-family:var(--f-latin);font-size:13px;opacity:.85}
+
+/* ---------- trip folders ---------- */
+.folders-hd{margin-top:64px}
+.fold{margin-top:12px}
+.fold>summary{list-style:none;display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:24px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.fold>summary::-webkit-details-marker{display:none}
+.fold .fi{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.9);box-shadow:inset 0 -2px 4px rgba(10,35,85,.1),0 6px 14px -8px rgba(10,35,85,.5)}
+.fold .fi svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.fold .ft{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.fold .ft b{font-size:18px;font-weight:500}
+.fold .ft small{font-size:12.5px;opacity:.82;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fold .chev{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.fold .chev::before{content:"";width:8px;height:8px;border-left:1.6px solid #fff;border-bottom:1.6px solid #fff;transform:translateY(-2px) rotate(-45deg)}
+.fold[open] .chev{transform:rotate(180deg)}
+.fold[open]>summary{border-color:rgba(255,255,255,.75)}
+.fold section{margin-top:14px;scroll-margin-top:90px}
+.fold section>.eyebrow,.fold section>h2{display:none}
+.fold-body{padding-bottom:10px;animation:foldin .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes foldin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.fold.sos-fold .fi{background:rgba(255,226,230,.95)}
+.fold.sos-fold .fi svg{stroke:#c42640}
+/* ---------- info cards ---------- */
+.info-grid{display:grid;gap:12px}
+.icard{padding:18px}
+.icard h3{margin:0 0 6px;font-size:20px;font-weight:500}
+.irow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-top:1px solid rgba(255,255,255,.2);font-size:15px}
+.irow:first-of-type{border-top:0}
+.irow>span:first-child{min-width:0}
+.irow small{display:block;font-size:12.5px;opacity:.82;font-family:var(--f-body)}
+.irow .tel{font-family:var(--f-latin);font-size:20px;font-weight:300;letter-spacing:-.01em;text-decoration:none;direction:ltr;white-space:nowrap}
+.irow .ph{text-align:left;font-size:12.5px;opacity:.92}
+.irow .ph b{display:block;font-family:var(--f-latin);font-weight:500;font-size:15px;direction:ltr}
+.icard.sos{background:linear-gradient(150deg,rgba(255,120,140,.38),rgba(226,71,92,.14))}
+.icard.sos .tel{font-size:30px}
+.inote{font-size:12.5px;opacity:.8;margin:8px 0 0}
+.tips{margin:4px 0 0;padding-inline-start:18px;display:grid;gap:8px;font-size:14.5px;line-height:1.45}
+.tips b{font-weight:500}
+@media (min-width:640px){.info-grid{grid-template-columns:1fr 1fr}.info-grid .icard:last-child{grid-column:1/-1}}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
@@ -697,7 +735,7 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
       <div class="names">תומר <span class="amp">&amp;</span> ברית</div>
       <div class="dates num">22.12.26 — 07.01.27</div>
     </div>
-    <div class="corner tl">Andaman Sea</div><div class="corner tr">16 nights</div><div class="corner bl">HKT → BKK</div><div class="corner br">Liquid&nbsp;Glass</div>
+    <div class="corner tl">Andaman Sea</div><div class="corner tr">16 nights</div><div class="corner bl">HKT → BKK</div><div class="corner br">Kata · Ao Nang · Phi Phi</div>
     <div class="hint">גררו את הגלויות · לחצו כדי לקפוץ ליעד</div>
   </div>
 
@@ -728,12 +766,6 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
     <p class="wxmeta">הכפתור "ליומן" פותח את Google Calendar עם האירוע. כך הטלפון ישלח לכם התראה גם כשהאתר סגור.</p>
   </section>
 
-  <section id="flights">
-    <div class="eyebrow">Boarding passes</div>
-    <h2>טיסות</h2>
-    <div class="passes" id="passes"></div>
-  </section>
-
   <section id="map">
     <div class="eyebrow">The route</div>
     <h2>המסלול על המפה</h2>
@@ -757,34 +789,92 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
     <div class="glass stopinfo" id="stopinfo"></div>
   </section>
 
-  <section id="weather">
-    <div class="eyebrow">Expected weather</div>
-    <h2>מזג האוויר בתאריכים שלנו</h2>
-    <div class="wx" id="wx"></div>
-    <div class="wxmeta" id="wxmeta"></div>
+  <div class="folders-hd"><div class="eyebrow">Trip folders</div><h2>כל השאר, בתיקיות</h2></div>
+  <details class="fold sos-fold" id="fold-info"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><span class="ft"><b>חירום ומידע שימושי</b><small>מספרי חירום, בתי חולים, טיפים ומשפטים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="info">
+    <div class="eyebrow">Emergency</div>
+    <h2>חירום ומידע שימושי</h2>
+    <div class="info-grid">
+      <div class="glass icard sos">
+        <h3>מספרי חירום בתאילנד</h3>
+        <div class="irow"><span>משטרת התיירות<small>מדברים אנגלית, 24/7</small></span><a class="tel num" href="tel:1155">1155</a></div>
+        <div class="irow"><span>אמבולנס וחירום רפואי</span><a class="tel num" href="tel:1669">1669</a></div>
+        <div class="irow"><span>משטרה</span><a class="tel num" href="tel:191">191</a></div>
+        <div class="irow"><span>כיבוי אש</span><a class="tel num" href="tel:199">199</a></div>
+      </div>
+      <div class="glass icard">
+        <h3>שגרירות ישראל בבנגקוק</h3>
+        <div class="irow"><span>Ocean Tower 2, קומה 25<small>75 Sukhumvit Soi 19, Bangkok</small></span><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Embassy+of+Israel+Bangkok" target="_blank" rel="noopener">מפה</a></div>
+        <div class="irow"><span>טלפון השגרירות</span><a class="tel num" href="tel:+6622049200">+66 2 204 9200</a></div>
+        <div class="irow"><span>חמ״ל משרד החוץ<small>24/7, מכל מקום בעולם</small></span><a class="tel num" href="tel:+97225303155">+972 2 530 3155</a></div>
+        <p class="inote">כדאי לוודא שהמספרים מעודכנים לפני הטיסה.</p>
+      </div>
+      <div class="glass icard">
+        <h3>בתי חולים ליד כל יעד</h3>
+        <div class="irow"><span>פוקט<small>Bangkok Hospital Phuket</small></span><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Bangkok+Hospital+Phuket" target="_blank" rel="noopener">ניווט</a></div>
+        <div class="irow"><span>קראבי ואאו נאנג<small>Krabi Nakharin International Hospital</small></span><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Krabi+Nakharin+International+Hospital" target="_blank" rel="noopener">ניווט</a></div>
+        <div class="irow"><span>קופיפי<small>מרפאת האי. מקרים קשים מעבירים בסירה לקראבי או לפוקט</small></span><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Phi+Phi+Island+Hospital" target="_blank" rel="noopener">ניווט</a></div>
+        <div class="irow"><span>בנגקוק<small>Bumrungrad International Hospital</small></span><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Bumrungrad+International+Hospital" target="_blank" rel="noopener">ניווט</a></div>
+        <p class="inote">ביטוח נסיעות: שלחו לתומר את מספר החירום של חברת הביטוח ואת מספר הפוליסה, והם יופיעו כאן.</p>
+      </div>
+      <div class="glass icard">
+        <h3>טיפים שימושיים</h3>
+        <ul class="tips">
+          <li><b>כסף:</b> בערך ₪1 = ฿10. בכל משיכה מכספומט גובים עמלה של כ-฿220, אז עדיף למשוך סכום גדול פעם אחת.</li>
+          <li><b>מוניות:</b> Grab או Bolt זולות ובטוחות יותר ממונית ברחוב. בטוק־טוק סוגרים מחיר לפני שעולים.</li>
+          <li><b>מקדשים:</b> כתפיים וברכיים מכוסות, ונעליים בחוץ.</li>
+          <li><b>נימוס:</b> מכבדים את המלך ואת משפחת המלוכה, לא נוגעים לאנשים בראש ולא מצביעים ברגל.</li>
+          <li><b>מים:</b> לא שותים מהברז. יש 7-Eleven כמעט בכל פינה.</li>
+          <li><b>שמש:</b> קרם הגנה ידידותי לשוניות. השמש חזקה גם כשמעונן.</li>
+          <li><b>חשמל:</b> ‎220V. מטען עם תקע אירופאי (שני פינים עגולים) נכנס. לתקע ישראלי צריך מתאם.</li>
+          <li><b>מאיה ביי:</b> אסור לשחות במפרץ, רואים אותו מהחוף בלבד.</li>
+        </ul>
+      </div>
+      <div class="glass icard">
+        <h3>משפטים בתאילנדית</h3>
+        <div class="irow"><span>שלום</span><span class="ph"><b>Sawasdee krap / ka</b>סוואדי קראפ / קא</span></div>
+        <div class="irow"><span>תודה</span><span class="ph"><b>Khop khun krap / ka</b>קופ קון קראפ / קא</span></div>
+        <div class="irow"><span>כמה זה עולה?</span><span class="ph"><b>Tao rai?</b>טאו ראי?</span></div>
+        <div class="irow"><span>בלי חריף, בבקשה</span><span class="ph"><b>Mai phet</b>מאי פט</span></div>
+        <div class="irow"><span>איפה השירותים?</span><span class="ph"><b>Hong nam yoo tee nai?</b>הונג נאם יו טי נאי?</span></div>
+        <div class="irow"><span>עזרה!</span><span class="ph"><b>Chuay duay!</b>צ׳ואי דואי!</span></div>
+        <p class="inote">גבר מסיים משפט ב-krap, אישה ב-ka.</p>
+      </div>
+    </div>
   </section>
-
+  </div></details>
+  <details class="fold" id="fold-flights"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg></span><span class="ft"><b>טיסות</b><small>LY85 · PG279 · LY86</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="flights">
+    <div class="eyebrow">Boarding passes</div>
+    <h2>טיסות</h2>
+    <div class="passes" id="passes"></div>
+  </section>
+  </div></details>
+  <details class="fold" id="fold-cards"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></span><span class="ft"><b>מלונות וגלויות</b><small>כתובות, טלפונים וניווט לכל מלון</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="cards">
     <div class="eyebrow">Greetings from</div>
     <h2>גלויות מהדרך</h2>
     <p style="margin:-6px 0 16px;font-size:14px;opacity:.9">לחצו על גלויה כדי להפוך אותה: מאחור יש את המלון, הכתובת והטלפון.</p>
     <div class="cards" id="pcards"></div>
   </section>
-
-  <section id="photos">
-    <div class="eyebrow">Photo route</div>
-    <h2>מסלול התמונות</h2>
-    <p style="margin:-6px 0 6px;font-size:14px;opacity:.9" id="photoHint">יום אחרי יום. בזמן הטיול אפשר להחליף כל איור בתמונה שלכם.</p>
-    <div class="strip" id="strip"></div>
+  </div></details>
+  <details class="fold" id="fold-weather"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg></span><span class="ft"><b>מזג אוויר</b><small>תחזית לכל יעד בתאריכים שלנו</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="weather">
+    <div class="eyebrow">Expected weather</div>
+    <h2>מזג האוויר בתאריכים שלנו</h2>
+    <div class="wx" id="wx"></div>
+    <div class="wxmeta" id="wxmeta"></div>
   </section>
-
+  </div></details>
+  <details class="fold" id="fold-albums"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg></span><span class="ft"><b>אלבומים</b><small>תמונות מכל יעד</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="albums">
     <div class="eyebrow">Albums</div>
     <h2>אלבום לכל יעד</h2>
     <div class="atabs" id="atabs" role="tablist" aria-label="יעדים"></div>
     <div class="glass album" id="album" role="tabpanel"></div>
   </section>
-
+  </div></details>
+  <details class="fold" id="fold-nye"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><span class="ft"><b>סילבסטר בקופיפי</b><small>31.12 · ספירה לאחור וזיקוקים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="nye">
     <div class="eyebrow">New Year's Eve · Ko Phi Phi</div>
     <h2>סילבסטר בקופיפי</h2>
@@ -823,7 +913,8 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
       <div class="nye-photo" id="nyePhoto"></div>
     </div>
   </section>
-
+  </div></details>
+  <details class="fold" id="fold-prep"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M4 6h2M4 12h2M4 18h2M9 6h11M9 12h11M9 18h11"/></svg></span><span class="ft"><b>לפני שטסים</b><small>מה נשאר לסגור · רשימת אריזה</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="todo">
     <div class="eyebrow">Still to book</div>
     <h2>מה נשאר לסגור</h2>
@@ -832,7 +923,6 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
       <div id="todoList"></div>
     </div>
   </section>
-
   <section id="pack">
     <div class="eyebrow">Packing list</div>
     <h2>מה לארוז</h2>
@@ -846,7 +936,14 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
       </form>
     </div>
   </section>
+  </div></details>
 
+  <section id="photos" hidden>
+    <div class="eyebrow">Photo route</div>
+    <h2>מסלול התמונות</h2>
+    <p style="margin:-6px 0 6px;font-size:14px;opacity:.9" id="photoHint">יום אחרי יום. בזמן הטיול אפשר להחליף כל איור בתמונה שלכם.</p>
+    <div class="strip" id="strip"></div>
+  </section>
   <section id="budget" hidden>
     <div class="eyebrow">Budget</div>
     <h2>הוצאות ותקציב</h2>
@@ -884,14 +981,12 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
 <nav class="nav" aria-label="ניווט">
   <div class="in">
     <a href="#count" data-nav="count"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>ספירה</a>
-    <a href="#flights" data-nav="flights"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg>טיסות</a>
     <a href="#map" data-nav="map"><svg viewBox="0 0 24 24"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2z M9 4v14M15 6v14"/></svg>מפה</a>
+    <a href="#flights" data-nav="flights"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg>טיסות</a>
     <a href="#weather" data-nav="weather"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg>תחזית</a>
-    <a href="#cards" data-nav="cards"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M12 8v8M15 8h3v3h-3z"/></svg>גלויות</a>
-    <a href="#nye" data-nav="nye"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>סילבסטר</a>
-    <a href="#todo" data-nav="todo"><svg viewBox="0 0 24 24"><path d="M4 6h2M4 12h2M4 18h2M9 6h11M9 12h11M9 18h11"/></svg>לסגור</a>
-    <a href="#pack" data-nav="pack"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V4h6v3M4 12h16"/></svg>אריזה</a>
     <a href="#albums" data-nav="albums"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg>אלבומים</a>
+    <a href="#todo" data-nav="todo"><svg viewBox="0 0 24 24"><path d="M4 6h2M4 12h2M4 18h2M9 6h11M9 12h11M9 18h11"/></svg>לסגור</a>
+    <a href="#info" data-nav="info"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg>חירום</a>
   </div>
 </nav>
 
@@ -1521,7 +1616,7 @@ renderBudget();
 /* ---------- nav highlight ---------- */
 const navs=[...document.querySelectorAll(".nav a")];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navs.forEach(a=>a.classList.toggle("on",a.dataset.nav===e.target.id))}})},{rootMargin:"-45% 0px -50% 0px"});
-["count","alerts","flights","map","weather","cards","photos","nye","todo","pack","budget"].forEach(id=>io.observe(document.getElementById(id)));
+["count","alerts","map","flights","weather","cards","albums","nye","todo","pack","info"].forEach(id=>io.observe(document.getElementById(id)));
 
 /* ---------- shared features (light up when the viewer supports them) ---------- */
 /* ---------- albums per destination ---------- */
@@ -1651,4 +1746,18 @@ const aura=document.querySelector(".aura");
 if(aura&&!reduce){let raf=0;window.addEventListener("scroll",()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;const y=scrollY;aura.style.transform=`translate3d(0,${(-y*0.06).toFixed(1)}px,0) rotate(${(y*0.004).toFixed(2)}deg)`})},{passive:true})}
 })();
 </script>
+<script>
+/* folders: open the folder that holds whatever we navigate to */
+(function(){
+"use strict";
+const openFor=el=>{const d=el&&el.closest&&el.closest("details.fold");if(d&&!d.open)d.open=true};
+const siv=Element.prototype.scrollIntoView;
+Element.prototype.scrollIntoView=function(){openFor(this);return siv.apply(this,arguments)};
+document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;const t=document.getElementById(a.getAttribute("href").slice(1));if(t)openFor(t)},true);
+const fromHash=()=>{const id=location.hash.slice(1);if(!id)return;const t=document.getElementById(id);if(t){openFor(t);requestAnimationFrame(()=>t.scrollIntoView())}};
+addEventListener("hashchange",fromHash);fromHash();
+document.querySelectorAll("details.fold").forEach(d=>d.addEventListener("toggle",()=>{if(d.open)dispatchEvent(new Event("resize"))}));
+})();
+</script>
+
 </body></html>
