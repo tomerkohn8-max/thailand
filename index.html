@@ -783,6 +783,45 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 
 /* dusk stays blue: only a soft sunset glow, no pink */
 :root[data-sky="dusk"]{--sky-top:#1b3c86;--sky-mid:#2a58ab;--sky-low:#3f6cbf;--aura-1:#1b8fb0;--aura-2:#4a5bd0;--aura-3:#e9875e;--aura-4:#6f9fe8}
+
+/* ---------- stop card: clear rows ---------- */
+.stopinfo .hd h3{display:flex;align-items:center;gap:10px}
+.stopinfo .sn{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--f-latin);font-size:16px;font-weight:500;text-shadow:none}
+.kv{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;border-top:1px solid rgba(255,255,255,.2);font-size:14.5px}
+.kv>span{flex:none;opacity:.8;font-size:13px}
+.kv>b{font-weight:500;text-align:left;min-width:0}
+.stopinfo .sm{margin:6px 0 0;font-size:14px;opacity:.92;line-height:1.45}
+.maphint{margin:-6px 0 12px;font-size:13.5px;opacity:.9}
+/* ---------- hotels ---------- */
+.hlist{display:grid;gap:12px}
+.hcard{padding:16px 18px}
+.hcard .hhd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+.hcard h4{margin:0;font-family:var(--f-latin);font-size:19px;font-weight:500;text-align:right}
+.hcard .hhd small{font-size:13px;opacity:.85}
+.htag{flex:none;font-size:12px;padding:5px 10px;border-radius:99px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.14);white-space:nowrap}
+.htag.now{background:rgba(255,255,255,.95);color:var(--ink);text-shadow:none}
+.htag.next{background:linear-gradient(160deg,#ffe2a8,#f2b95f);color:var(--ink);border-color:rgba(255,236,200,.95);text-shadow:none}
+.hdates{display:grid;grid-template-columns:1fr auto 1fr auto;align-items:center;gap:10px;padding:12px;border-radius:18px;background:rgba(12,30,80,.22);border:1px solid rgba(255,255,255,.2);margin-bottom:6px}
+.hdates span{display:block;font-size:11.5px;opacity:.8}
+.hdates b{display:block;font-family:var(--f-latin);font-weight:300;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.hdates small{display:block;font-size:12px;opacity:.88}
+.hdates i{width:22px;height:1.5px;background:rgba(255,255,255,.6);position:relative}
+.hdates i::after{content:"";position:absolute;left:-1px;top:-3.5px;width:7px;height:7px;border-left:1.5px solid rgba(255,255,255,.8);border-bottom:1.5px solid rgba(255,255,255,.8);transform:rotate(45deg)}
+.hdates .hn{text-align:center;padding-inline-start:10px;border-inline-start:1px solid rgba(255,255,255,.25)}
+.hdates .hn b{font-size:22px}
+.hcard .kv .tel{font-family:var(--f-latin);text-decoration:none}
+.hnote{margin:8px 0 0;font-size:13.5px;line-height:1.45;opacity:.92}
+.hnote.dim{opacity:.75;font-size:12.5px}
+.hcard .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hcard.cur{border-color:rgba(255,255,255,.9)}
+.hcard.missing{border-style:dashed;background:rgba(255,255,255,.06)}
+/* ---------- new year: gold folder ---------- */
+.fold.nye-fold>summary{background:linear-gradient(150deg,rgba(255,226,168,.42),rgba(60,40,120,.35) 60%,rgba(242,185,95,.3));border-color:rgba(255,220,160,.8)}
+.fold.nye-fold .fi{background:linear-gradient(160deg,#fff2d2,#f2b95f)}
+.fold.nye-fold .fi svg{stroke:#5a3c08}
+.fold.nye-fold .ft b{font-size:19px}
+.fold.nye-fold .ft b::after{content:" 2027";font-family:var(--f-latin);font-weight:300;color:#ffe2a8}
+.fold.nye-fold>summary::before{background:radial-gradient(240px circle at 85% 20%,rgba(255,236,190,.55),transparent 60%)}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
@@ -852,10 +891,18 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <div class="passes" id="passes"></div>
   </section>
   </div></details>
+  <details class="fold" id="fold-hotels"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 20V9l9-5 9 5v11M3 20h18M9 20v-5h6v5M8 11h.01M12 11h.01M16 11h.01"/></svg></span><span class="ft"><b>מלונות</b><small id="hotelSum">5 יעדים · צ׳ק-אין, צ׳ק-אאוט וכתובות</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="hotels">
+    <div class="eyebrow">Hotels</div>
+    <h2>מלונות</h2>
+    <div class="hlist" id="hotelList"></div>
+  </section>
+  </div></details>
 
   <section id="map">
     <div class="eyebrow">The route</div>
     <h2>המסלול על המפה</h2>
+    <p class="maphint">לחצו על מספר במפה כדי לראות את היעד. "סיור במסלול" עובר על כולם.</p>
     <div class="mapbox" id="mapbox">
       <svg id="mapsvg" viewBox="0 0 1000 1476.7" preserveAspectRatio="xMidYMid meet" role="img" aria-label="מפת המסלול בתאילנד">
         <defs><linearGradient id="seaGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fd3e0"/><stop offset=".55" stop-color="#3fa9c9"/><stop offset="1" stop-color="#2a6fb8"/></linearGradient></defs><rect x="-2000" y="-2000" width="6000" height="6000" fill="url(#seaGrad)"/>
@@ -899,6 +946,46 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <h2>אלבום לכל יעד</h2>
     <div class="atabs" id="atabs" role="tablist" aria-label="יעדים"></div>
     <div class="glass album" id="album" role="tabpanel"></div>
+  </section>
+  </div></details>
+  <details class="fold nye-fold" id="fold-nye"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><span class="ft"><b>סילבסטר בקופיפי</b><small>31.12 · ספירה לאחור וזיקוקים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="nye">
+    <div class="eyebrow">New Year's Eve · Ko Phi Phi</div>
+    <h2>סילבסטר בקופיפי</h2>
+    <div class="nye" id="nyeBox">
+      <canvas id="fw" aria-hidden="true"></canvas>
+      <div class="yr" id="nyeYear">2027</div>
+      <div class="where">Ko Phi Phi · 31.12.2026</div>
+      <p class="lead" id="nyeLead">חצות על החוף, זיקוקים מעל המפרץ, ואתם ביחד. שנה שמתחילה בתאילנד.</p>
+      <div class="digits num" id="nyeDigits"></div>
+      <div class="tz" id="nyeTz">חצות בקופיפי הוא 19:00 בישראל</div>
+      <button class="boom" type="button" id="boom">זיקוקים</button>
+    </div>
+    <div class="nye-grid">
+      <div class="glass capsule">
+        <h3>קפסולת זמן לשנה החדשה</h3>
+        <p id="capHint">כל אחד כותב משאלה או משפט לשנה הבאה. ההודעות נחתמות ונפתחות בחצות של 1.1.2027 בשעון תאילנד.</p>
+        <form id="wishForm">
+          <textarea class="field" id="wishText" maxlength="400" placeholder="מה אני מאחל לנו ב-2027…"></textarea>
+          <div class="row2">
+            <select class="field" id="wishWho" aria-label="מי כותב"><option value="tomer">תומר</option><option value="brit">ברית</option></select>
+            <button class="btn" type="submit" id="wishBtn">לחתום ולשמור</button>
+          </div>
+        </form>
+        <div class="wishes" id="wishes"></div>
+      </div>
+      <div class="glass nye-plan">
+        <h3>הערב עצמו</h3>
+        <ol>
+          <li><b>לפני השקיעה:</b> לעלות לנקודת התצפית של פי פי ולצלם את שני המפרצים.</li>
+          <li><b>ארוחת ערב</b> מוקדמת, לפני שהמסעדות מתמלאות.</li>
+          <li><b>המסיבה:</b> לשמור את הטלפונים בכיס עמיד במים ולקבוע נקודת מפגש אם מתפספסים.</li>
+          <li><b>בחצות:</b> תמונה אחת ביחד מול הזיקוקים. היא תיכנס לכאן.</li>
+          <li><b>1.1 בבוקר:</b> לפתוח את קפסולת הזמן ביחד.</li>
+        </ol>
+      </div>
+      <div class="nye-photo" id="nyePhoto"></div>
+    </div>
   </section>
   </div></details>
   <details class="fold sos-fold" id="fold-info"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><span class="ft"><b>חירום ומידע שימושי</b><small>מספרי חירום, בתי חולים, טיפים ומשפטים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
@@ -956,52 +1043,12 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
   </div></details>
 
   <div class="folders-hd"><div class="eyebrow">More</div><h2>עוד בתיקיות</h2></div>
-  <details class="fold" id="fold-cards"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></span><span class="ft"><b>מלונות וגלויות</b><small>כתובות, טלפונים וניווט לכל מלון</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <details class="fold" id="fold-cards"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></span><span class="ft"><b>גלויות מהדרך</b><small>גלויה לכל יעד</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="cards">
     <div class="eyebrow">Greetings from</div>
     <h2>גלויות מהדרך</h2>
     <p style="margin:-6px 0 16px;font-size:14px;opacity:.9">לחצו על גלויה כדי להפוך אותה: מאחור יש את המלון, הכתובת והטלפון.</p>
     <div class="cards" id="pcards"></div>
-  </section>
-  </div></details>
-  <details class="fold" id="fold-nye"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><span class="ft"><b>סילבסטר בקופיפי</b><small>31.12 · ספירה לאחור וזיקוקים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
-  <section id="nye">
-    <div class="eyebrow">New Year's Eve · Ko Phi Phi</div>
-    <h2>סילבסטר בקופיפי</h2>
-    <div class="nye" id="nyeBox">
-      <canvas id="fw" aria-hidden="true"></canvas>
-      <div class="yr" id="nyeYear">2027</div>
-      <div class="where">Ko Phi Phi · 31.12.2026</div>
-      <p class="lead" id="nyeLead">חצות על החוף, זיקוקים מעל המפרץ, ואתם ביחד. שנה שמתחילה בתאילנד.</p>
-      <div class="digits num" id="nyeDigits"></div>
-      <div class="tz" id="nyeTz">חצות בקופיפי הוא 19:00 בישראל</div>
-      <button class="boom" type="button" id="boom">זיקוקים</button>
-    </div>
-    <div class="nye-grid">
-      <div class="glass capsule">
-        <h3>קפסולת זמן לשנה החדשה</h3>
-        <p id="capHint">כל אחד כותב משאלה או משפט לשנה הבאה. ההודעות נחתמות ונפתחות בחצות של 1.1.2027 בשעון תאילנד.</p>
-        <form id="wishForm">
-          <textarea class="field" id="wishText" maxlength="400" placeholder="מה אני מאחל לנו ב-2027…"></textarea>
-          <div class="row2">
-            <select class="field" id="wishWho" aria-label="מי כותב"><option value="tomer">תומר</option><option value="brit">ברית</option></select>
-            <button class="btn" type="submit" id="wishBtn">לחתום ולשמור</button>
-          </div>
-        </form>
-        <div class="wishes" id="wishes"></div>
-      </div>
-      <div class="glass nye-plan">
-        <h3>הערב עצמו</h3>
-        <ol>
-          <li><b>לפני השקיעה:</b> לעלות לנקודת התצפית של פי פי ולצלם את שני המפרצים.</li>
-          <li><b>ארוחת ערב</b> מוקדמת, לפני שהמסעדות מתמלאות.</li>
-          <li><b>המסיבה:</b> לשמור את הטלפונים בכיס עמיד במים ולקבוע נקודת מפגש אם מתפספסים.</li>
-          <li><b>בחצות:</b> תמונה אחת ביחד מול הזיקוקים. היא תיכנס לכאן.</li>
-          <li><b>1.1 בבוקר:</b> לפתוח את קפסולת הזמן ביחד.</li>
-        </ol>
-      </div>
-      <div class="nye-photo" id="nyePhoto"></div>
-    </div>
   </section>
   </div></details>
   <details class="fold" id="fold-prep"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M4 6h2M4 12h2M4 18h2M9 6h11M9 12h11M9 18h11"/></svg></span><span class="ft"><b>לפני שטסים</b><small>מה נשאר לסגור · רשימת אריזה</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
@@ -1072,6 +1119,7 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
   <div class="in">
     <a href="#count" data-nav="count"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>ספירה</a>
     <a href="#flights" data-nav="flights"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg>טיסות</a>
+    <a href="#hotels" data-nav="hotels"><svg viewBox="0 0 24 24"><path d="M3 20V9l9-5 9 5v11M3 20h18M9 20v-5h6v5"/></svg>מלונות</a>
     <a href="#map" data-nav="map"><svg viewBox="0 0 24 24"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2z M9 4v14M15 6v14"/></svg>מפה</a>
     <a href="#weather" data-nav="weather"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg>תחזית</a>
     <a href="#attractions" data-nav="attractions"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>אטרקציות</a>
@@ -1452,14 +1500,14 @@ function gmaps(q){return "https://www.google.com/maps/search/?api=1&query="+enco
 function selectStop(id){
   const s=STOPS.find(x=>x.id===id);if(!s)return;
   svg.querySelectorAll(".pin").forEach(p=>p.classList.toggle("on",p.dataset.id===id));
-  const av=climAvg(s);const wx=`${av.hi}°/${av.lo}° · סיכוי לגשם ${av.rain}%`;
-  $("#stopinfo").innerHTML=`<div class="hd"><h3>${STOPS.indexOf(s)+1}. ${s.he}${s.area?` <span style="font-size:15px;font-weight:500;opacity:.85">${s.area}</span>`:""}</h3><span class="dt num">${fmtRange(s)}</span></div>
-    <div class="row">${s.nights} לילות · בדרך כלל בתאריכים האלה ${wx}</div>
-    ${s.hotel?`<div class="row"><b>${esc(s.hotel.name)}</b> · ${D(s.hotel.dates)}<br>${D(s.hotel.room)}</div>`:""}
-    ${s.gap?`<div class="row warn">${D(s.gap)}</div>`:""}
-    <div class="row" style="opacity:.92">${D(s.msg)}</div>
-    <div class="acts">${s.hotel?`<a class="chip" href="${gmaps(s.hotel.name+" "+s.hotel.addr)}" target="_blank" rel="noopener">ניווט למלון</a>`:`<a class="chip" href="${gmaps(s.en+" Thailand")}" target="_blank" rel="noopener">פתיחה ב-Google Maps</a>`}
-    <button class="chip" type="button" data-attr="${s.id}">אטרקציות</button><button class="chip" type="button" data-flip="${s.id}">לגלויה</button></div>`;
+  const av=climAvg(s),h=s.hotel,nm=s.he+(s.id==="krabi2"?" נוי":"");
+  $("#stopinfo").innerHTML=`<div class="hd"><h3><span class="sn num">${STOPS.indexOf(s)+1}</span>${nm}</h3><span class="dt num">${fmtRange(s)}</span></div>
+    <div class="kv"><span>אזור</span><b>${s.area||"מרכז העיר"}</b></div>
+    <div class="kv"><span>לילות</span><b class="num">${s.nights}</b></div>
+    <div class="kv"><span>מלון</span><b>${h?esc(h.name):'<span class="warn">עוד לא הוזמן</span>'}</b></div>
+    <div class="kv"><span>מזג אוויר רגיל</span><b class="num">${av.hi}° ביום · ${av.lo}° בלילה · ${av.rain}% גשם</b></div>
+    <p class="sm">${D(s.msg)}</p>
+    <div class="acts">${h?`<button class="chip" type="button" data-hotel="${s.id}">פרטי המלון</button>`:""}<button class="chip" type="button" data-attr="${s.id}">אטרקציות</button><a class="chip" href="${h?gmaps(h.name+" "+h.addr):gmaps(s.en+" Thailand")}" target="_blank" rel="noopener">ניווט</a></div>`;
 }
 $("#stopinfo").addEventListener("click",e=>{const b=e.target.closest("[data-flip]");if(b)jump(b.dataset.flip)});
 
@@ -1686,7 +1734,7 @@ renderBudget();
 /* ---------- nav highlight ---------- */
 const navs=[...document.querySelectorAll(".nav a")];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navs.forEach(a=>a.classList.toggle("on",a.dataset.nav===e.target.id))}})},{rootMargin:"-45% 0px -50% 0px"});
-["count","alerts","map","flights","weather","cards","albums","nye","todo","pack","info","attractions"].forEach(id=>io.observe(document.getElementById(id)));
+["count","alerts","map","flights","weather","cards","albums","nye","todo","pack","info","attractions","hotels"].forEach(id=>io.observe(document.getElementById(id)));
 
 /* ---------- shared features (light up when the viewer supports them) ---------- */
 /* ---------- albums per destination ---------- */
@@ -1798,6 +1846,40 @@ renderAttr();
   svg.addEventListener("pointerdown",()=>{if(tourT)stopTour()});
   document.querySelectorAll(".mapctl button[data-view]").forEach(b=>b.addEventListener("click",()=>{if(tourT)stopTour()}));
 })();
+/* ---------- hotels ---------- */
+const HOTELS=[
+ {stop:"phuket",name:"The BluEco Hotel",area:"פוקט · חוף קאטה",in:"2026-12-23",out:"2026-12-26",tin:"14:00",tout:"12:00",room:"חדר דלוקס, זוגי או טווין, עם נוף לגינה · כולל ארוחת בוקר",addr:"100/75 Kata Road, Kata, Phuket 83100",phones:["+66 92 593 5278","+66 83 824 6997"],note:"שתי הזמנות: 23–25.12 ו-25–26.12. נוחתים ב-21:15, אז מגיעים למלון בערך ב-22:30."},
+ {stop:"krabi",name:"Frank Ao Nang Krabi Resort",area:"קראבי · אאו נאנג",in:"2026-12-26",out:"2026-12-29",tin:"",tout:"",room:"26–28.12 חדר דלוקס · 28–29.12 בונגלו עם נוף לגן",addr:"901 Soi 13, Moo 2, Ao Nang, Krabi 81180",phones:["+66 64 030 6786"],note:"ב-28.12 עוברים מהחדר לבונגלו."},
+ {stop:"phiphi",name:"Phitarom Phi Phi Resort",area:"קופיפי",in:"2026-12-29",out:"2027-01-02",tin:"14:00",tout:"11:00",room:"",addr:"Ko Phi Phi, Krabi",phones:[],note:"כאן חוגגים את השנה החדשה."},
+ {stop:"krabi2",name:"Wanarom Residence Hotel",area:"קראבי נוי, ליד שדה התעופה",in:"2027-01-02",out:"2027-01-03",tin:"",tout:"",room:"חדר דלוקס טווין",addr:"351 Moo 12, Petkasem Rd, Krabi Noi, Krabi 81000",phones:[],note:"לילה אחד לפני הטיסה לבנגקוק."},
+ {stop:"bangkok",name:"",area:"בנגקוק",in:"2027-01-03",out:"2027-01-06",tin:"",tout:"",room:"",addr:"",phones:[],note:"ב-6.1 הטיסה הביתה ב-20:00, להגיע לסוברנבומי עד 17:00."}];
+function hdate(iso){const d=new Date(iso+"T12:00:00+07:00");return{day:fmt("Asia/Bangkok",{weekday:"long"}).format(d),dm:fmt("Asia/Bangkok",{day:"numeric",month:"numeric"}).format(d)}}
+function renderHotels(){const now=Date.now();
+  const cur=HOTELS.findIndex(h=>now>=Date.parse(h.in+"T00:00:00+07:00")&&now<Date.parse(h.out+"T12:00:00+07:00"));
+  const nxt=cur>=0?cur:HOTELS.findIndex(h=>now<Date.parse(h.in+"T00:00:00+07:00"));
+  $("#hotelList").innerHTML=HOTELS.map((h,i)=>{const a=hdate(h.in),b=hdate(h.out),n=Math.round((Date.parse(h.out)-Date.parse(h.in))/864e5);
+    const tag=i===cur?'<span class="htag now">אתם כאן עכשיו</span>':i===nxt?'<span class="htag next">המלון הבא</span>':"";
+    if(!h.name)return `<article class="glass hcard missing" id="hotel-${h.stop}"><div class="hhd"><div><h4>${h.area}</h4><small>עוד לא הוזמן</small></div>${tag}</div>
+      <div class="hdates"><div><span>הגעה</span><b class="num">${a.dm}</b><small>${a.day}</small></div><i aria-hidden="true"></i><div><span>עזיבה</span><b class="num">${b.dm}</b><small>${b.day}</small></div><div class="hn"><b class="num">${n}</b><small>לילות</small></div></div>
+      <p class="hnote">${h.note} כשתזמינו, שלחו צילום של ההזמנה והמלון יופיע כאן.</p></article>`;
+    return `<article class="glass hcard${i===cur?" cur":""}" id="hotel-${h.stop}"><div class="hhd"><div><h4 dir="ltr">${esc(h.name)}</h4><small>${h.area}</small></div>${tag||'<span class="htag ok">הוזמן ✓</span>'}</div>
+      <div class="hdates"><div><span>צ׳ק-אין</span><b class="num">${a.dm}</b><small>${a.day}${h.tin?` · <span class="num">מ-${h.tin}</span>`:""}</small></div><i aria-hidden="true"></i>
+        <div><span>צ׳ק-אאוט</span><b class="num">${b.dm}</b><small>${b.day}${h.tout?` · <span class="num">עד ${h.tout}</span>`:""}</small></div><div class="hn"><b class="num">${n}</b><small>${n===1?"לילה":"לילות"}</small></div></div>
+      ${h.room?`<div class="kv"><span>חדר</span><b>${esc(h.room)}</b></div>`:""}
+      ${h.addr?`<div class="kv"><span>כתובת</span><b dir="ltr" class="sel">${esc(h.addr)}</b></div>`:""}
+      ${h.phones.length?`<div class="kv"><span>טלפון</span><b>${h.phones.map(p=>`<a class="tel num" dir="ltr" href="tel:${p.replace(/\s/g,"")}">${p}</a>`).join("<br>")}</b></div>`:""}
+      ${h.note?`<p class="hnote">${esc(h.note)}</p>`:""}
+      ${!h.tin||!h.tout?`<p class="hnote dim">שעות צ׳ק-אין וצ׳ק-אאוט: לבדוק באישור ההזמנה.</p>`:""}
+      <div class="acts"><a class="chip" href="${gmaps(h.name+" "+h.addr)}" target="_blank" rel="noopener">ניווט למלון</a>${h.addr?`<button class="chip" type="button" data-copy="${esc(h.addr)}">העתקת כתובת</button>`:""}</div></article>`}).join("");
+  const s=$("#hotelSum");if(s){const t=cur>=0?HOTELS[cur]:HOTELS[nxt];s.textContent=t?(cur>=0?"עכשיו: ":"הבא: ")+(t.name||t.area)+" · "+hdate(t.in).dm:"5 יעדים"}}
+$("#hotelList").addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent="הועתק ✓"}catch(err){const r=document.createRange();const el=b.closest(".hcard").querySelector(".sel");if(el){r.selectNodeContents(el);const sl=getSelection();sl.removeAllRanges();sl.addRange(r)}b.textContent="סמנתי, העתיקו ידנית"}setTimeout(()=>b.textContent="העתקת כתובת",2200)});
+$("#stopinfo").addEventListener("click",e=>{const b=e.target.closest("[data-hotel]");if(!b)return;const c=document.getElementById("hotel-"+b.dataset.hotel);if(c)c.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"})});
+renderHotels();
+/* ---------- new year: live countdown in its folder, front and centre on 31.12 ---------- */
+(function nyeFold(){const f=$("#fold-nye"),sm=f&&f.querySelector(".ft small");if(!f)return;const T0=Date.parse("2027-01-01T00:00:00+07:00");
+  function tick(){const ms=T0-Date.now();if(ms>0){const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5);sm.textContent=d>0?`עוד ${d} ימים ו-${h} שעות לחצות בקופיפי`:`עוד ${h} שעות ו-${Math.floor(ms%36e5/6e4)} דקות לחצות!`}else sm.textContent="שנה טובה! 2027 התחילה בקופיפי"}
+  tick();setInterval(tick,30000);
+  const now=Date.now();if(now>=Date.parse("2026-12-31T00:00:00+07:00")&&now<Date.parse("2027-01-02T00:00:00+07:00")){const c=$("#count");if(c&&c.parentNode)c.parentNode.insertBefore(f,c.nextSibling);f.open=true;dispatchEvent(new Event("resize"))}})();
 (async function shared(){
   const ok=true;
   // outside Claude (a normal web host) the page can fetch the real forecast itself
