@@ -766,6 +766,14 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 .xcard .meta{font-size:12px;padding:5px 10px;border-radius:99px;background:rgba(12,30,80,.25);border:1px solid rgba(255,255,255,.25)}
 .xcard.top{border-color:rgba(255,215,150,.75)}
 .xcard.top .xn{background:linear-gradient(160deg,#ffe2a8,#f2b95f)}
+
+/* map motion */
+.route-glow{fill:none;stroke:#fff;stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(255,255,255,.95));pointer-events:none}
+.traveler{pointer-events:none}
+.traveler .th{fill:rgba(255,255,255,.38)}
+.traveler .tc{fill:#fff;stroke:#1f4f9e;stroke-width:2;vector-effect:non-scaling-stroke}
+.mapctl .tourbtn{background:linear-gradient(160deg,#ffe2a8,#f2b95f);border-color:rgba(255,236,200,.95);color:var(--ink);font-weight:500}
+.mapctl .tourbtn[aria-pressed="true"]{background:rgba(20,35,59,.82);color:#fff;border-color:rgba(20,35,59,.82)}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
@@ -1752,6 +1760,35 @@ function renderAttr(){
 $("#xtabs").addEventListener("click",e=>{const b=e.target.closest("[data-x]");if(!b)return;XCUR=b.dataset.x;renderAttr()});
 $("#stopinfo").addEventListener("click",e=>{const b=e.target.closest("[data-attr]");if(!b)return;XCUR=b.dataset.attr;renderAttr();$("#attractions").scrollIntoView({behavior:reduce?"auto":"smooth"})});
 renderAttr();
+/* ---------- map motion: a traveller moving along the route + a guided tour ---------- */
+(function mapMotion(){
+  const g=$("#routes"),paths=[...g.querySelectorAll(".route-path")];
+  const seq=[1,2,3,4,5,6,0].map(i=>paths[i]).filter(Boolean),lens=seq.map(p=>p.getTotalLength());
+  const glow=document.createElementNS(NS,"path");glow.setAttribute("class","route-glow");g.appendChild(glow);
+  const dot=document.createElementNS(NS,"g");dot.setAttribute("class","traveler");dot.innerHTML='<circle class="th" r="1"/><circle class="tc" r="1"/>';g.appendChild(dot);
+  const th=dot.children[0],tc=dot.children[1];
+  let leg=0,t0=performance.now(),run=false,raf=0;
+  const setLeg=i=>{leg=i;glow.setAttribute("d",seq[i].getAttribute("d"));glow.style.strokeDasharray=lens[i]};
+  const dur=i=>Math.min(4200,Math.max(seq[i].classList.contains("fly")?1300:2200,lens[i]*(seq[i].classList.contains("fly")?1.6:10)));
+  function frame(now){raf=0;if(!run)return;const s=vb?vb[2]/(svg.getBoundingClientRect().width||1):1;
+    let k=(now-t0)/dur(leg);if(k>=1.4){setLeg((leg+1)%seq.length);t0=now;k=0}
+    const e=Math.min(1,k),ee=e<.5?2*e*e:1-Math.pow(-2*e+2,2)/2,pt=seq[leg].getPointAtLength(lens[leg]*ee);
+    dot.setAttribute("transform",`translate(${pt.x.toFixed(1)},${pt.y.toFixed(1)})`);th.setAttribute("r",(10+Math.sin(now/260)*2)*s);tc.setAttribute("r",4.5*s);
+    glow.style.strokeWidth=(4*s)+"px";glow.style.strokeDashoffset=lens[leg]*(1-ee);glow.style.opacity=k>1?Math.max(0,1-(k-1)/.4):1;
+    raf=requestAnimationFrame(frame)}
+  const go=()=>{if(run&&!raf){t0=performance.now();raf=requestAnimationFrame(frame)}};
+  if(!reduce&&seq.length){setLeg(0);new IntersectionObserver(es=>{run=es[0].isIntersecting&&!document.hidden;go()}).observe($("#mapbox"));
+    document.addEventListener("visibilitychange",()=>{run=!document.hidden&&run;go()})}else{dot.style.display="none"}
+  /* guided tour: fly from stop to stop */
+  const tb=document.createElement("button");tb.type="button";tb.id="tour";tb.className="tourbtn";tb.setAttribute("aria-pressed","false");tb.textContent="סיור במסלול";
+  $(".mapctl").prepend(tb);let tourT=null;
+  function stopTour(){clearTimeout(tourT);tourT=null;tb.setAttribute("aria-pressed","false");tb.textContent="סיור במסלול"}
+  function step(i){if(i>=STOPS.length){stopTour();setView("south");return}const s=STOPS[i],r=s.id==="bangkok"?.34:.22,a=P(s.lon-r,s.lat+r*.8),b=P(s.lon+r,s.lat-r*.8);
+    document.querySelectorAll(".mapctl button[data-view]").forEach(x=>x.setAttribute("aria-pressed","false"));animateTo([a[0],a[1],b[0]-a[0],b[1]-a[1]]);selectStop(s.id);tourT=setTimeout(()=>step(i+1),3400)}
+  tb.addEventListener("click",()=>{if(tourT){stopTour();return}tb.setAttribute("aria-pressed","true");tb.textContent="עצירה";step(0)});
+  svg.addEventListener("pointerdown",()=>{if(tourT)stopTour()});
+  document.querySelectorAll(".mapctl button[data-view]").forEach(b=>b.addEventListener("click",()=>{if(tourT)stopTour()}));
+})();
 (async function shared(){
   const ok=true;
   // outside Claude (a normal web host) the page can fetch the real forecast itself
