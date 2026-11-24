@@ -866,6 +866,12 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 :root[data-sky="dawn"]{--sky-top:#2c4f9a;--sky-mid:#4f74b8;--sky-low:#c99566;--aura-1:#3d8fc0;--aura-2:#5a6fd0;--aura-3:#ffb07a;--aura-4:#ffd9a8}
 :root[data-sky="golden"]{--sky-top:#24519f;--sky-mid:#3c6fb8;--sky-low:#c48a52;--aura-1:#1b8fb0;--aura-2:#4a5bd0;--aura-3:#ffa25a;--aura-4:#ffd28a}
 :root[data-sky="dusk"]{--sky-top:#1a3478;--sky-mid:#2b4f9c;--sky-low:#8a6a7a;--aura-3:#ff8a4c;--aura-4:#e8a565}
+
+/* title without the capsule: big, one even weight */
+.deckhero .lens{background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0;transform:none}
+.deckhero .lens::before,.deckhero .lens::after{display:none}
+.deckhero .hero-title h1{font-weight:500;font-size:clamp(80px,25vw,176px);letter-spacing:-.055em;line-height:.9;text-shadow:0 2px 30px rgba(5,18,55,.35)}
+.deckhero .hero-title h1 i{font-weight:500}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
