@@ -734,6 +734,38 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 .install .it b{font-size:15px;font-weight:500}
 .install .btn{padding:8px 14px;font-size:14px}
 .install .x{background:none;border:0;font-size:22px;line-height:1;padding:2px 4px;opacity:.8}
+
+/* ---------- hero: smooth swipe deck instead of the 3D ring ---------- */
+.hero.deckhero{height:auto!important;margin-top:-58px;padding-top:96px;padding-bottom:8px;display:flex;flex-direction:column;align-items:center;gap:6px;overflow:visible}
+.hero .hero-title.static{position:relative;inset:auto;z-index:3}
+.hero .hero-foot.static{position:relative!important;inset:auto!important;text-align:center;z-index:3;margin-top:2px}
+.deckhero .corner.tl,.deckhero .corner.tr{top:70px}
+.deckhero .hint{position:relative;bottom:auto;margin-top:10px}
+.deck{display:flex;gap:12px;width:100%;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+  padding:22px calc(50% - 78px) 26px;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-top:-6px}
+.deck::-webkit-scrollbar{display:none}
+.deck .card{flex:0 0 156px;height:226px;scroll-snap-align:center;position:relative;border:0;border-radius:22px;overflow:hidden;padding:6px;cursor:pointer;color:#fff;
+  background:linear-gradient(150deg,rgba(255,255,255,.42),rgba(20,45,110,.28));box-shadow:inset 2px 2px 1px -1px #fff,inset -2px -2px 1px -1px rgba(255,255,255,.45),0 22px 40px -22px rgba(5,18,55,.6);
+  transform-origin:50% 60%;will-change:transform;text-align:center}
+.deck .card svg.art,.deck .card img{display:block;width:100%;height:148px;border-radius:16px;object-fit:cover}
+.deck .card .cap{padding:8px 4px 0;direction:ltr}
+.deck .card .cap i{display:block;font-family:var(--f-latin);font-size:10px;letter-spacing:.04em;opacity:.85}
+.deck .card .cap b{display:block;font-family:var(--f-latin);font-weight:500;font-size:16px;letter-spacing:.05em;line-height:1.1}
+.deck .card .stamp{position:absolute;top:12px;right:12px;padding:3px 7px;border:1px solid rgba(255,255,255,.8);border-radius:99px;background:rgba(255,255,255,.3);font-family:var(--f-latin);font-size:9px;letter-spacing:.1em}
+.deck .card.mid{box-shadow:inset 2px 2px 1px -1px #fff,inset -2px -2px 1px -1px rgba(255,255,255,.5),0 30px 50px -22px rgba(5,18,55,.7)}
+@media (min-width:640px){.deck .card{flex-basis:176px;height:250px}.deck .card svg.art,.deck .card img{height:168px}.deck{padding-inline:calc(50% - 88px)}}
+
+/* ---------- attractions ---------- */
+.xlist{display:grid;gap:10px}
+.xcard{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:14px 16px;border-radius:22px;align-items:start}
+.xcard .xn{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--f-latin);font-weight:500;font-size:14px;text-shadow:none;margin-top:2px}
+.xcard h4{margin:0;font-size:17px;font-weight:500;line-height:1.25}
+.xcard h4 small{display:block;font-family:var(--f-latin);font-size:12px;font-weight:400;opacity:.85;direction:ltr;text-align:right;letter-spacing:.02em}
+.xcard p{margin:6px 0 0;font-size:14px;line-height:1.45;opacity:.95}
+.xcard .xa{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.xcard .meta{font-size:12px;padding:5px 10px;border-radius:99px;background:rgba(12,30,80,.25);border:1px solid rgba(255,255,255,.25)}
+.xcard.top{border-color:rgba(255,215,150,.75)}
+.xcard.top .xn{background:linear-gradient(160deg,#ffe2a8,#f2b95f)}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
@@ -750,17 +782,17 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <div class="now" id="topNow">עכשיו בתאילנד</div>
   </header>
 
-  <div class="hero" id="hero">
-    <div class="stage"><div class="ring" id="ring"></div></div>
-    <div class="hero-title">
+  <div class="hero deckhero" id="hero">
+    <div class="corner tl">Andaman Sea</div><div class="corner tr">16 nights</div>
+    <div class="hero-title static">
       <div class="lens"><h1>Thai<i>land</i></h1></div>
     </div>
-    <div class="hero-foot hero-title" style="position:absolute;inset:auto 0 38px 0">
+    <div class="deck" id="ring" dir="ltr" aria-label="גלויות היעדים"></div>
+    <div class="hero-foot hero-title static">
       <div class="names">תומר <span class="amp">&amp;</span> ברית</div>
       <div class="dates num">22.12.26 — 07.01.27</div>
     </div>
-    <div class="corner tl">Andaman Sea</div><div class="corner tr">16 nights</div><div class="corner bl">HKT → BKK</div><div class="corner br">Kata · Ao Nang · Phi Phi</div>
-    <div class="hint">גררו את הגלויות · לחצו כדי לקפוץ ליעד</div>
+    <div class="hint">החליקו בין הגלויות · לחיצה קופצת ליעד</div>
   </div>
 
   <div class="glass install" id="install" hidden>
@@ -871,6 +903,15 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
         <p class="inote">גבר מסיים משפט ב-krap, אישה ב-ka.</p>
       </div>
     </div>
+  </section>
+  </div></details>
+  <details class="fold" id="fold-attractions"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="ft"><b>אטרקציות לכל יעד</b><small>חופים, תצפיות, מקדשים ושווקים, עם ניווט</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="attractions">
+    <div class="eyebrow">Things to do</div>
+    <h2>אטרקציות לכל יעד</h2>
+    <div class="atabs" id="xtabs" role="tablist" aria-label="יעדים"></div>
+    <div class="xlist" id="xlist" role="tabpanel"></div>
+    <p class="anote">כל כפתור "ניווט" פותח את המקום ב-Google Maps. כדאי לבדוק שעות פתיחה לפני שיוצאים.</p>
   </section>
   </div></details>
   <details class="fold" id="fold-flights"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg></span><span class="ft"><b>טיסות</b><small>LY85 · PG279 · LY86</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
@@ -1012,10 +1053,11 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
   <div class="in">
     <a href="#count" data-nav="count"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>ספירה</a>
     <a href="#map" data-nav="map"><svg viewBox="0 0 24 24"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2z M9 4v14M15 6v14"/></svg>מפה</a>
+    <a href="#attractions" data-nav="attractions"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>אטרקציות</a>
     <a href="#flights" data-nav="flights"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg>טיסות</a>
     <a href="#weather" data-nav="weather"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg>תחזית</a>
     <a href="#albums" data-nav="albums"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg>אלבומים</a>
-    <a href="#todo" data-nav="todo"><svg viewBox="0 0 24 24"><path d="M4 6h2M4 12h2M4 18h2M9 6h11M9 12h11M9 18h11"/></svg>לסגור</a>
+    
     <a href="#info" data-nav="info"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg>חירום</a>
   </div>
 </nav>
@@ -1177,7 +1219,7 @@ function setSky(){
 /* ---------- hero ring ---------- */
 const RING=[
   {k:"phuket",en:"PHUKET",d:"23–26.12",go:"phuket"},
-  {k:"us",en:"TOMER & BRIT",d:"2026",go:"photos"},
+  {k:"us",en:"TOMER & BRIT",d:"2026",go:"albums"},
   {k:"krabi",en:"KRABI",d:"26–29.12",go:"krabi"},
   {k:"pass",en:"LY85",d:"22.12 · 23:35",go:"flights"},
   {k:"phiphi",en:"PHI PHI",d:"29.12–2.1",go:"phiphi"},
@@ -1185,37 +1227,18 @@ const RING=[
   {k:"bangkok",en:"BANGKOK",d:"3–6.1",go:"bangkok"},
   {k:"phiphi",en:"NEW YEAR",d:"31.12",go:"nye"}
 ];
-(function ring(){
-  const el=$("#ring"),hero=$("#hero"),n=RING.length;
-  RING.forEach((r,i)=>{
-    const c=document.createElement("div");c.className="card";c.tabIndex=0;c.setAttribute("role","button");c.setAttribute("aria-label",r.en+" "+r.d);
-    const pic=r.k==="us"?`<img src="${PHOTO_US}" alt="תומר וברית">`:art(r.k);
-    c.innerHTML=`${pic}<div class="stamp">TH</div><div class="cap"><i>Greetings from</i><b>${esc(r.en)}</b><i>${esc(r.d)}</i></div>`;
-    c.dataset.go=r.go;el.appendChild(c);
-  });
-  const cards=[...el.children];
-  let rot=0,vel=reduce?0:-0.06,drag=null,moved=0;
-  function R(){return Math.min(320,Math.max(210,hero.clientWidth*0.42))}
-  function draw(){
-    const r=R();
-    cards.forEach((c,i)=>{const a=i*360/n+rot;
-      const rad=a*Math.PI/180, z=Math.cos(rad);
-      c.style.transform=`rotateY(${a}deg) translateZ(${r}px) rotateZ(${(i%2?3:-3)}deg)`;
-      c.style.filter=z<0?`brightness(${0.75+z*0.1}) blur(${(-z*1.2).toFixed(1)}px)`:"none";
-      c.style.zIndex=Math.round(z*100);
-    });
-    el.style.transform=`rotateX(-8deg)`;
-  }
-  function tick(){if(!drag){rot+=vel;if(!reduce)vel+=((-0.06)-vel)*0.02}draw();requestAnimationFrame(tick)}
-  hero.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY,r:rot,t:performance.now(),lx:e.clientX};moved=0});
-  window.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-drag.x;if(Math.abs(dx)>6&&Math.abs(dx)>Math.abs(e.clientY-drag.y))moved=1;
-    if(moved){rot=drag.r+dx*0.35;const now=performance.now();vel=(e.clientX-drag.lx)*0.35/Math.max(1,(now-drag.t))*16;drag.t=now;drag.lx=e.clientX}});
-  window.addEventListener("pointerup",()=>{drag=null});
-  window.addEventListener("pointercancel",()=>{drag=null});
-  hero.addEventListener("wheel",e=>{if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){vel=-e.deltaX*0.02;e.preventDefault()}},{passive:false});
-  el.addEventListener("click",e=>{if(moved)return;const c=e.target.closest(".card");if(c)jump(c.dataset.go)});
-  el.addEventListener("keydown",e=>{if(e.key==="Enter"){const c=e.target.closest(".card");if(c)jump(c.dataset.go)}});
-  draw();requestAnimationFrame(tick);
+(function deck(){
+  const el=$("#ring");
+  RING.forEach(r=>{const c=document.createElement("button");c.type="button";c.className="card";c.setAttribute("aria-label",r.en+" "+r.d);
+    const pic=r.k==="us"?`<img src="${PHOTO_US}" alt="תומר וברית" decoding="async">`:art(r.k);
+    c.innerHTML=`${pic}<div class="stamp">TH</div><div class="cap"><i>Greetings from</i><b>${esc(r.en)}</b><i>${esc(r.d)}</i></div>`;c.dataset.go=r.go;el.appendChild(c)});
+  const cards=[...el.children];let raf=0;
+  function upd(){raf=0;const r=el.getBoundingClientRect();if(!r.width)return;const cx=r.left+r.width/2;
+    cards.forEach(c=>{const b=c.getBoundingClientRect(),k=Math.max(-1,Math.min(1,((b.left+b.width/2)-cx)/(b.width*1.6)));
+      c.style.transform=`perspective(900px) rotateY(${(-k*24).toFixed(1)}deg) scale(${(1-Math.abs(k)*.12).toFixed(3)})`;c.style.opacity=(1-Math.abs(k)*.3).toFixed(2);c.classList.toggle("mid",Math.abs(k)<.3)})}
+  el.addEventListener("scroll",()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});addEventListener("resize",()=>{if(!raf)raf=requestAnimationFrame(upd)});
+  el.addEventListener("click",e=>{const c=e.target.closest(".card");if(!c)return;if(!c.classList.contains("mid")){c.scrollIntoView({behavior:reduce?"auto":"smooth",inline:"center",block:"nearest"});return}jump(c.dataset.go)});
+  requestAnimationFrame(()=>{const first=cards[1]||cards[0];el.scrollLeft=first.offsetLeft-(el.clientWidth-first.offsetWidth)/2;upd()});
 })();
 function jump(go){
   if(STOPS.some(s=>s.id===go)){selectStop(go);const pc=document.getElementById("pc-"+go);(pc||$("#cards")).scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"});if(pc)setTimeout(()=>pc.classList.add("flip"),600);return}
@@ -1418,7 +1441,7 @@ function selectStop(id){
     ${s.gap?`<div class="row warn">${D(s.gap)}</div>`:""}
     <div class="row" style="opacity:.92">${D(s.msg)}</div>
     <div class="acts">${s.hotel?`<a class="chip" href="${gmaps(s.hotel.name+" "+s.hotel.addr)}" target="_blank" rel="noopener">ניווט למלון</a>`:`<a class="chip" href="${gmaps(s.en+" Thailand")}" target="_blank" rel="noopener">פתיחה ב-Google Maps</a>`}
-    <button class="chip" type="button" data-flip="${s.id}">לגלויה</button></div>`;
+    <button class="chip" type="button" data-attr="${s.id}">אטרקציות</button><button class="chip" type="button" data-flip="${s.id}">לגלויה</button></div>`;
 }
 $("#stopinfo").addEventListener("click",e=>{const b=e.target.closest("[data-flip]");if(b)jump(b.dataset.flip)});
 
@@ -1645,7 +1668,7 @@ renderBudget();
 /* ---------- nav highlight ---------- */
 const navs=[...document.querySelectorAll(".nav a")];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navs.forEach(a=>a.classList.toggle("on",a.dataset.nav===e.target.id))}})},{rootMargin:"-45% 0px -50% 0px"});
-["count","alerts","map","flights","weather","cards","albums","nye","todo","pack","info"].forEach(id=>io.observe(document.getElementById(id)));
+["count","alerts","map","flights","weather","cards","albums","nye","todo","pack","info","attractions"].forEach(id=>io.observe(document.getElementById(id)));
 
 /* ---------- shared features (light up when the viewer supports them) ---------- */
 /* ---------- albums per destination ---------- */
@@ -1687,6 +1710,47 @@ function closeLb(){const lb=$("#lb");if(lb)lb.hidden=true;document.documentEleme
 $("#album").addEventListener("click",e=>{const t=e.target.closest(".t");if(t)openLb(+t.dataset.i)});
 renderTabs();renderAlbum();loadLocal();
 
+/* ---------- attractions per destination ---------- */
+const ATTR={
+phuket:[
+ {he:"חוף קאטה וקאטה נוי",en:"Kata Beach & Kata Noi",d:"החוף שליד המלון. קאטה נוי, הקטן והשקט שמדרום, הוא המקום לשקיעה הראשונה.",m:"הליכה מהמלון",q:"Kata Noi Beach Phuket",top:1},
+ {he:"תצפית שלושת המפרצים",en:"Karon Viewpoint",d:"תצפית על קאטה נוי, קאטה וקרון בבת אחת. הכי יפה אחר הצהריים.",m:"10 דק׳ נסיעה",q:"Karon Viewpoint Phuket"},
+ {he:"כף פרומטפ",en:"Promthep Cape",d:"נקודת השקיעה המפורסמת של פוקט. מגיעים חצי שעה לפני השקיעה, כי מתמלא.",m:"20 דק׳ נסיעה",q:"Promthep Cape Phuket",top:1},
+ {he:"הבודהה הגדול",en:"Big Buddha Phuket",d:"פסל לבן ענק על ההר עם נוף לכל הדרום של האי. כתפיים וברכיים מכוסות.",m:"25 דק׳ נסיעה",q:"Big Buddha Phuket"},
+ {he:"מקדש צ׳לונג",en:"Wat Chalong",d:"המקדש הגדול והחשוב באי, אפשר לשלב עם הבודהה הגדול.",m:"25 דק׳ נסיעה",q:"Wat Chalong Phuket"},
+ {he:"העיר העתיקה של פוקט",en:"Phuket Old Town",d:"רחובות צבעוניים בסגנון סינו־פורטוגזי, בתי קפה ואוכל טוב.",m:"35 דק׳ נסיעה",q:"Phuket Old Town Thalang Road"}],
+krabi:[
+ {he:"ריילי ופרה נאנג",en:"Railay & Phra Nang Cave Beach",d:"חופים בין צוקי גיר שמגיעים אליהם רק בסירה. פרה נאנג הוא אחד החופים היפים בתאילנד.",m:"15 דק׳ בלונגטייל מאאו נאנג",q:"Phra Nang Cave Beach Railay",top:1},
+ {he:"סיור ארבעת האיים",en:"Four Islands Tour",d:"יום בסירה: פודה, צ׳יקן איילנד, טאפ ושנירקול. בעונה כדאי להזמין יום מראש.",m:"חצי יום עד יום",q:"Koh Poda Krabi",top:1},
+ {he:"מקדש מערת הנמר",en:"Wat Tham Suea · Tiger Cave Temple",d:"1,260 מדרגות לפסגה עם תצפית מטורפת. עולים מוקדם בבוקר, עם מים.",m:"30 דק׳ נסיעה",q:"Tiger Cave Temple Krabi"},
+ {he:"הבריכה הירוקה והמעיינות החמים",en:"Emerald Pool & Hot Springs",d:"בריכה טבעית בצבע אמרלד באמצע יער, ומעיינות חמים בדרך.",m:"שעה נסיעה",q:"Emerald Pool Krabi"},
+ {he:"הטיילת של אאו נאנג",en:"Ao Nang Beach",d:"שקיעה על החוף, מסעדות ודוכני אוכל בערב.",m:"ליד המלון",q:"Ao Nang Beach"}],
+phiphi:[
+ {he:"נקודת התצפית של פי פי",en:"Phi Phi Viewpoint",d:"הנוף על שני המפרצים של האי. עלייה של כ-20 דקות במדרגות, הכי יפה בשקיעה.",m:"הליכה מהכפר",q:"Phi Phi Viewpoint",top:1},
+ {he:"מאיה ביי",en:"Maya Bay · Phi Phi Leh",d:"המפרץ מהסרט 'החוף'. אסור לשחות, רואים מהחוף. מגיעים בסיור סירה, הכי טוב מוקדם.",m:"סיור סירה",q:"Maya Bay",top:1},
+ {he:"לגונת פילה",en:"Pileh Lagoon",d:"לגונה טורקיז בין צוקים, שוחים מהסירה. בדרך כלל באותו סיור עם מאיה ביי.",m:"סיור סירה",q:"Pileh Lagoon"},
+ {he:"האי במבו",en:"Bamboo Island",d:"חוף לבן ומים צלולים, מושלם לחצי יום של כלום.",m:"30 דק׳ בסירה",q:"Bamboo Island Phi Phi"},
+ {he:"לונג ביץ׳",en:"Long Beach · Hat Yao",d:"חוף רגוע עם שנירקול טוב ממש מהחוף.",m:"הליכה או מונית סירה",q:"Long Beach Phi Phi"},
+ {he:"מאנקי ביץ׳",en:"Monkey Beach",d:"קיאק או סירה לחוף עם קופים. לא מאכילים ולא משאירים תיקים פתוחים.",m:"קיאק או סירה",q:"Monkey Beach Phi Phi"}],
+krabi2:[
+ {he:"שוק הלילה של קראבי טאון",en:"Krabi Walking Street",d:"שוק אוכל ומוזיקה בסופי שבוע. ב-2.1 שבת, אז הוא פתוח בערב.",m:"15 דק׳ נסיעה",q:"Krabi Town Walking Street",top:1},
+ {he:"מקדש קאו קוראראם",en:"Wat Kaew Korawaram",d:"מקדש לבן ומרשים במרכז העיר.",m:"15 דק׳ נסיעה",q:"Wat Kaew Korawaram Krabi"},
+ {he:"הרי קאו קאנאב נאם",en:"Khao Khanab Nam",d:"שני הרי הגיר ליד הנהר, הסמל של קראבי. מגיעים בלונגטייל מהמזח בעיר.",m:"20 דק׳ נסיעה ושייט קצר",q:"Khao Khanab Nam Krabi"}],
+bangkok:[
+ {he:"הארמון המלכותי ומקדש הבודהה מאזמרגד",en:"Grand Palace · Wat Phra Kaew",d:"האתר הכי מפורסם בעיר. לבוש צנוע חובה, ומגיעים מוקדם לפני החום וההמונים.",m:"אזור העיר העתיקה",q:"Grand Palace Bangkok",top:1},
+ {he:"וואט פו",en:"Wat Pho · Reclining Buddha",d:"הבודהה השוכב באורך 46 מטר, ובית הספר המפורסם לעיסוי תאילנדי.",m:"הליכה מהארמון",q:"Wat Pho Bangkok"},
+ {he:"וואט ארון",en:"Wat Arun",d:"מקדש השחר על גדת הנהר. חוצים במעבורת מ-Tha Tien, ובשקיעה הוא מואר.",m:"מעבורת קצרה",q:"Wat Arun Bangkok"},
+ {he:"שוק צ׳טוצ׳אק",en:"Chatuchak Weekend Market",d:"שוק ענק שפתוח רק בסופ״ש. ב-3.1 יום ראשון, היום שאתם נוחתים בבנגקוק.",m:"BTS Mo Chit",q:"Chatuchak Weekend Market",top:1},
+ {he:"צ׳יינה טאון · יאוורט",en:"Chinatown · Yaowarat Road",d:"אוכל רחוב בלילה, שלטים מוארים ופירות ים על הגריל.",m:"MRT Wat Mangkon",q:"Yaowarat Road Bangkok"},
+ {he:"שוק הלילה ג׳וד פיירס",en:"Jodd Fairs",d:"שוק לילה מודרני עם הרבה אוכל.",m:"MRT Rama 9",q:"Jodd Fairs Rama 9"}]};
+let XCUR=(()=>{const n=Date.now(),s=STOPS.find(x=>n>=dateOnly(x.from)&&n<dateOnly(x.to));return s?s.id:"phuket"})();
+function renderAttr(){
+  $("#xtabs").innerHTML=STOPS.map(s=>`<button class="atab" type="button" role="tab" data-x="${s.id}" aria-selected="${s.id===XCUR}">${s.he}${s.id==="krabi2"?" נוי":""}<small>${(ATTR[s.id]||[]).length} מקומות</small></button>`).join("");
+  $("#xlist").innerHTML=(ATTR[XCUR]||[]).map((a,i)=>`<article class="glass xcard${a.top?" top":""}"><span class="xn">${i+1}</span><div><h4>${esc(a.he)}<small>${esc(a.en)}</small></h4><p>${esc(a.d)}</p>
+    <div class="xa"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(a.q)}" target="_blank" rel="noopener">ניווט</a><span class="meta">${esc(a.m)}</span>${a.top?'<span class="meta">חובה</span>':""}</div></div></article>`).join("")}
+$("#xtabs").addEventListener("click",e=>{const b=e.target.closest("[data-x]");if(!b)return;XCUR=b.dataset.x;renderAttr()});
+$("#stopinfo").addEventListener("click",e=>{const b=e.target.closest("[data-attr]");if(!b)return;XCUR=b.dataset.attr;renderAttr();$("#attractions").scrollIntoView({behavior:reduce?"auto":"smooth"})});
+renderAttr();
 (async function shared(){
   const ok=true;
   // outside Claude (a normal web host) the page can fetch the real forecast itself
