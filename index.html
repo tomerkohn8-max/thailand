@@ -780,6 +780,9 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 .push.show{visibility:visible;transform:none;transition:transform .6s cubic-bezier(.2,.9,.2,1.1)}
 .top{transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s}
 .top.away{transform:translateY(calc(-100% - 24px - env(safe-area-inset-top,0px)));opacity:0}
+
+/* dusk stays blue: only a soft sunset glow, no pink */
+:root[data-sky="dusk"]{--sky-top:#1b3c86;--sky-mid:#2a58ab;--sky-low:#3f6cbf;--aura-1:#1b8fb0;--aura-2:#4a5bd0;--aura-3:#e9875e;--aura-4:#6f9fe8}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
