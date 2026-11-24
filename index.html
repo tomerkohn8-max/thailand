@@ -828,6 +828,14 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <p class="wxmeta">הכפתור "ליומן" פותח את Google Calendar עם האירוע. כך הטלפון ישלח לכם התראה גם כשהאתר סגור.</p>
   </section>
 
+  <details class="fold" id="fold-flights"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg></span><span class="ft"><b>טיסות</b><small>LY85 · PG279 · LY86</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="flights">
+    <div class="eyebrow">Boarding passes</div>
+    <h2>טיסות</h2>
+    <div class="passes" id="passes"></div>
+  </section>
+  </div></details>
+
   <section id="map">
     <div class="eyebrow">The route</div>
     <h2>המסלול על המפה</h2>
@@ -851,7 +859,31 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <div class="glass stopinfo" id="stopinfo"></div>
   </section>
 
-  <div class="folders-hd"><div class="eyebrow">Trip folders</div><h2>כל השאר, בתיקיות</h2></div>
+  <details class="fold" id="fold-weather"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg></span><span class="ft"><b>מזג אוויר</b><small>תחזית לכל יעד בתאריכים שלנו</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="weather">
+    <div class="eyebrow">Expected weather</div>
+    <h2>מזג האוויר בתאריכים שלנו</h2>
+    <div class="wx" id="wx"></div>
+    <div class="wxmeta" id="wxmeta"></div>
+  </section>
+  </div></details>
+  <details class="fold" id="fold-attractions"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="ft"><b>אטרקציות לכל יעד</b><small>חופים, תצפיות, מקדשים ושווקים, עם ניווט</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="attractions">
+    <div class="eyebrow">Things to do</div>
+    <h2>אטרקציות לכל יעד</h2>
+    <div class="atabs" id="xtabs" role="tablist" aria-label="יעדים"></div>
+    <div class="xlist" id="xlist" role="tabpanel"></div>
+    <p class="anote">כל כפתור "ניווט" פותח את המקום ב-Google Maps. כדאי לבדוק שעות פתיחה לפני שיוצאים.</p>
+  </section>
+  </div></details>
+  <details class="fold" id="fold-albums"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg></span><span class="ft"><b>אלבומים</b><small>תמונות מכל יעד</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="albums">
+    <div class="eyebrow">Albums</div>
+    <h2>אלבום לכל יעד</h2>
+    <div class="atabs" id="atabs" role="tablist" aria-label="יעדים"></div>
+    <div class="glass album" id="album" role="tabpanel"></div>
+  </section>
+  </div></details>
   <details class="fold sos-fold" id="fold-info"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><span class="ft"><b>חירום ומידע שימושי</b><small>מספרי חירום, בתי חולים, טיפים ומשפטים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="info">
     <div class="eyebrow">Emergency</div>
@@ -905,44 +937,14 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     </div>
   </section>
   </div></details>
-  <details class="fold" id="fold-attractions"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span class="ft"><b>אטרקציות לכל יעד</b><small>חופים, תצפיות, מקדשים ושווקים, עם ניווט</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
-  <section id="attractions">
-    <div class="eyebrow">Things to do</div>
-    <h2>אטרקציות לכל יעד</h2>
-    <div class="atabs" id="xtabs" role="tablist" aria-label="יעדים"></div>
-    <div class="xlist" id="xlist" role="tabpanel"></div>
-    <p class="anote">כל כפתור "ניווט" פותח את המקום ב-Google Maps. כדאי לבדוק שעות פתיחה לפני שיוצאים.</p>
-  </section>
-  </div></details>
-  <details class="fold" id="fold-flights"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg></span><span class="ft"><b>טיסות</b><small>LY85 · PG279 · LY86</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
-  <section id="flights">
-    <div class="eyebrow">Boarding passes</div>
-    <h2>טיסות</h2>
-    <div class="passes" id="passes"></div>
-  </section>
-  </div></details>
+
+  <div class="folders-hd"><div class="eyebrow">More</div><h2>עוד בתיקיות</h2></div>
   <details class="fold" id="fold-cards"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></span><span class="ft"><b>מלונות וגלויות</b><small>כתובות, טלפונים וניווט לכל מלון</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="cards">
     <div class="eyebrow">Greetings from</div>
     <h2>גלויות מהדרך</h2>
     <p style="margin:-6px 0 16px;font-size:14px;opacity:.9">לחצו על גלויה כדי להפוך אותה: מאחור יש את המלון, הכתובת והטלפון.</p>
     <div class="cards" id="pcards"></div>
-  </section>
-  </div></details>
-  <details class="fold" id="fold-weather"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg></span><span class="ft"><b>מזג אוויר</b><small>תחזית לכל יעד בתאריכים שלנו</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
-  <section id="weather">
-    <div class="eyebrow">Expected weather</div>
-    <h2>מזג האוויר בתאריכים שלנו</h2>
-    <div class="wx" id="wx"></div>
-    <div class="wxmeta" id="wxmeta"></div>
-  </section>
-  </div></details>
-  <details class="fold" id="fold-albums"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg></span><span class="ft"><b>אלבומים</b><small>תמונות מכל יעד</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
-  <section id="albums">
-    <div class="eyebrow">Albums</div>
-    <h2>אלבום לכל יעד</h2>
-    <div class="atabs" id="atabs" role="tablist" aria-label="יעדים"></div>
-    <div class="glass album" id="album" role="tabpanel"></div>
   </section>
   </div></details>
   <details class="fold" id="fold-nye"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><span class="ft"><b>סילבסטר בקופיפי</b><small>31.12 · ספירה לאחור וזיקוקים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
@@ -1052,12 +1054,11 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 <nav class="nav" aria-label="ניווט">
   <div class="in">
     <a href="#count" data-nav="count"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>ספירה</a>
-    <a href="#map" data-nav="map"><svg viewBox="0 0 24 24"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2z M9 4v14M15 6v14"/></svg>מפה</a>
-    <a href="#attractions" data-nav="attractions"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>אטרקציות</a>
     <a href="#flights" data-nav="flights"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg>טיסות</a>
+    <a href="#map" data-nav="map"><svg viewBox="0 0 24 24"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2z M9 4v14M15 6v14"/></svg>מפה</a>
     <a href="#weather" data-nav="weather"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg>תחזית</a>
+    <a href="#attractions" data-nav="attractions"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>אטרקציות</a>
     <a href="#albums" data-nav="albums"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg>אלבומים</a>
-    
     <a href="#info" data-nav="info"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg>חירום</a>
   </div>
 </nav>
