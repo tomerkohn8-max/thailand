@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta property="og:type" content="website"><meta property="og:url" content="https://tomerkohn8-max.github.io/thailand/"><meta property="og:title" content="תומר וברית בתאילנד"><meta property="og:description" content="22.12.26–07.01.27 · פוקט, קראבי, קופיפי ובנגקוק"><meta property="og:image" content="https://tomerkohn8-max.github.io/thailand/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#4f8fdc"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta property="og:type" content="website"><meta property="og:url" content="https://tomerkohn8-max.github.io/thailand/"><meta property="og:title" content="תומר וברית בתאילנד"><meta property="og:description" content="22.12.26–07.01.27 · פוקט, קראבי, קופיפי ובנגקוק"><meta property="og:image" content="https://tomerkohn8-max.github.io/thailand/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#1f4f9e"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Thailand"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>תומר וברית בתאילנד</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -710,6 +710,30 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
 .tips{margin:4px 0 0;padding-inline-start:18px;display:grid;gap:8px;font-size:14.5px;line-height:1.45}
 .tips b{font-weight:500}
 @media (min-width:640px){.info-grid{grid-template-columns:1fr 1fr}.info-grid .icard:last-child{grid-column:1/-1}}
+
+/* ---------- legibility: deeper sky, no green, tinted glass ---------- */
+:root{--sky-top:#1f4f9e;--sky-mid:#2f6cc0;--sky-low:#3f7fcf;
+  --aura-1:#1b8fb0;--aura-2:#4a5bd0;--aura-3:#e9875e;--aura-4:#6fa6ee;
+  --g-fill:linear-gradient(150deg,rgba(255,255,255,.18) 0%,rgba(12,30,80,.16) 50%,rgba(255,255,255,.08) 100%)}
+:root[data-sky="dusk"]{--sky-low:#a86f8f}
+.aura{opacity:.85}
+.aura i:nth-child(4){opacity:.35}
+body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
+.glass{background:var(--g-fill)}
+.pass.paper{background:linear-gradient(150deg,rgba(255,255,255,.16),rgba(12,30,80,.22) 55%,rgba(255,255,255,.08))}
+.ring .card{background:linear-gradient(150deg,rgba(255,255,255,.42),rgba(20,45,110,.25))}
+.pol{background:linear-gradient(150deg,rgba(255,255,255,.35),rgba(20,45,110,.25))}
+.eyebrow{background:rgba(12,30,80,.22)}
+.corner,.hint,.hero-title .dates{opacity:1}
+.item label small,.alert .what small,.wxc .ds,.irow small,.fold .ft small{opacity:.92}
+
+.install{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-top:16px;border-radius:24px}
+.install[hidden]{display:none}
+.install .fi img{display:block;border-radius:12px}
+.install .it{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;font-size:13px;line-height:1.35}
+.install .it b{font-size:15px;font-weight:500}
+.install .btn{padding:8px 14px;font-size:14px}
+.install .x{background:none;border:0;font-size:22px;line-height:1;padding:2px 4px;opacity:.8}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
@@ -739,6 +763,12 @@ body{text-shadow:0 1px 2px rgba(8,25,70,.30),0 0 14px rgba(8,25,70,.20)}
     <div class="hint">גררו את הגלויות · לחצו כדי לקפוץ ליעד</div>
   </div>
 
+  <div class="glass install" id="install" hidden>
+    <div class="fi"><img src="icon-180.png" alt="" width="42" height="42"></div>
+    <div class="it"><b>להוסיף כאפליקציה למסך הבית</b><span id="installHow">באייפון: בספארי לוחצים על כפתור השיתוף ואז "הוספה למסך הבית".</span></div>
+    <button type="button" class="btn" id="installBtn" hidden>התקנה</button>
+    <button type="button" class="x" id="installX" aria-label="סגירה">×</button>
+  </div>
   <section id="count">
     <div class="eyebrow">Countdown</div>
     <h2 id="countTitle">עד ההמראה</h2>
@@ -1047,12 +1077,11 @@ const REMINDERS=[
 ];
 const TODO=[
   {g:"מלונות",items:[
-    {id:"h-phuket",t:"The BluEco Hotel, פוקט",s:"23–25.12 · שני לילות",fixed:true},
+    {id:"h-phuket",t:"The BluEco Hotel, פוקט",s:"23–26.12 · שלושה לילות, בשתי הזמנות",fixed:true},
     {id:"h-bkk",t:"מלון בבנגקוק ל-3–6.1",s:"שלושה לילות",due:"בהקדם"},
     {id:"h-krabi",t:"Frank Ao Nang Krabi Resort",s:"26–29.12",fixed:true},
     {id:"h-pp",t:"Phitarom Phi Phi Resort",s:"29.12–2.1",fixed:true},
-    {id:"h-kn",t:"Wanarom Residence Hotel",s:"2–3.1",fixed:true},
-    {id:"h-blueco",t:"The BluEco Hotel, פוקט",s:"25–26.12",fixed:true}]},
+    {id:"h-kn",t:"Wanarom Residence Hotel",s:"2–3.1",fixed:true}]},
   {g:"תחבורה",items:[
     {id:"f-kbv",t:"טיסה מקראבי לבנגקוק ב-3.1",s:"מ-KBV ל-BKK או DMK"},
     {id:"t-hkt",t:"הסעה משדה התעופה של פוקט למלון",s:"נוחתים ב-23.12 ב-21:15"},
@@ -1759,5 +1788,23 @@ addEventListener("hashchange",fromHash);fromHash();
 document.querySelectorAll("details.fold").forEach(d=>d.addEventListener("toggle",()=>{if(d.open)dispatchEvent(new Event("resize"))}));
 })();
 </script>
+<script>
+/* phone app: offline cache + add-to-home-screen hint */
+(function(){
+"use strict";
+if("serviceWorker" in navigator&&location.protocol==="https:"){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
+const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+let dismissed=false;try{dismissed=localStorage.getItem("tb-install-x")==="1"}catch(e){}
+const box=document.getElementById("install");if(!box||standalone||dismissed)return;
+const ios=/iphone|ipad|ipod/i.test(navigator.userAgent),android=/android/i.test(navigator.userAgent);
+if(!ios&&!android)return;
+if(android)document.getElementById("installHow").textContent="בכרום: תפריט שלוש הנקודות ואז \"התקנת אפליקציה\" או \"הוספה למסך הבית\".";
+box.hidden=false;
+let deferred=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;document.getElementById("installBtn").hidden=false});
+document.getElementById("installBtn").addEventListener("click",async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;box.hidden=true});
+document.getElementById("installX").addEventListener("click",()=>{box.hidden=true;try{localStorage.setItem("tb-install-x","1")}catch(e){}});
+})();
+</script>
+
 
 </body></html>
