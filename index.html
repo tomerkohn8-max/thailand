@@ -872,6 +872,15 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
 .deckhero .lens::before,.deckhero .lens::after{display:none}
 .deckhero .hero-title h1{font-weight:500;font-size:clamp(80px,25vw,176px);letter-spacing:-.055em;line-height:.9;text-shadow:0 2px 30px rgba(5,18,55,.35)}
 .deckhero .hero-title h1 i{font-weight:500}
+
+/* ---------- tidy groups ---------- */
+.ghd{margin:44px 4px 4px;font-size:13px;font-weight:500;letter-spacing:.04em;opacity:.85;display:flex;align-items:center;gap:10px}
+.ghd::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.35),rgba(255,255,255,0))}
+.ghd+.fold,.ghd+section{margin-top:10px}
+.fold{margin-top:10px}
+section#map{margin-top:10px}
+section#map>.eyebrow{display:none}
+section#map>h2{font-size:clamp(26px,7vw,34px);margin-top:4px}
 </style>
 
 <div class="sky" aria-hidden="true"><div class="aura"><i></i><i></i><i></i><i></i></div><div class="stars"></div><div id="clouds"></div></div>
@@ -926,9 +935,8 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
       <div class="prog-legend"><span>פוקט</span><span>קראבי</span><span>קופיפי</span><span>בנגקוק</span></div>
     </div>
   </section>
-
-
-  <details class="fold" id="fold-flights"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg></span><span class="ft"><b>טיסות</b><small>LY85 · PG279 · LY86</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <div class="ghd">הטיול</div>
+  <details class="fold" id="fold-flights"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-3-2-7 2-5-5-2 1 3 6-4 1-2-1-1 1z"/></svg></span><span class="ft"><b>טיסות</b><small>LY85 · PG279 · VZ2341 · LY86</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="flights">
     <div class="eyebrow">Boarding passes</div>
     <h2>טיסות</h2>
@@ -942,14 +950,6 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <div class="hlist" id="hotelList"></div>
   </section>
   </div></details>
-  <details class="fold" id="fold-plan"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M7 14h4M7 17h7"/></svg></span><span class="ft"><b>תוכנית יום־יום</b><small>מה עושים בכל יום, מ-22.12 עד 6.1</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
-  <section id="plan">
-    <div class="eyebrow">Day by day</div>
-    <h2>תוכנית יום־יום</h2>
-    <div class="plist" id="planList"></div>
-    <p class="anote">זו הצעה. רוצים להזיז משהו? כתבו לתומר והתוכנית תתעדכן.</p>
-  </section>
-  </div></details>
   <details class="fold" id="fold-transfers"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M5 17h14M7 17l-1-5h12l-1 5M8 12l1.5-4h5L16 12"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/></svg></span><span class="ft"><b>מעברים בין יעדים</b><small>הסעות, מונית, מעבורות וטיסת פנים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="transfers">
     <div class="eyebrow">Getting around</div>
@@ -958,7 +958,15 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <p class="anote">המחירים והזמנים משוערים. כשמזמינים, מסמנים בתיקייה "לפני שטסים" והכרטיס כאן משתנה ל"הוזמן".</p>
   </section>
   </div></details>
-
+  <details class="fold" id="fold-plan"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M7 14h4M7 17h7"/></svg></span><span class="ft"><b>תוכנית יום־יום</b><small>מה עושים בכל יום, מ-22.12 עד 6.1</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
+  <section id="plan">
+    <div class="eyebrow">Day by day</div>
+    <h2>תוכנית יום־יום</h2>
+    <div class="plist" id="planList"></div>
+    <p class="anote">זו הצעה. רוצים להזיז משהו? כתבו לתומר והתוכנית תתעדכן.</p>
+  </section>
+  </div></details>
+  <div class="ghd">ביעדים</div>
   <section id="map">
     <div class="eyebrow">The route</div>
     <h2>המסלול על המפה</h2>
@@ -982,7 +990,6 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     </div>
     <div class="glass stopinfo" id="stopinfo"></div>
   </section>
-
   <details class="fold" id="fold-weather"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg></span><span class="ft"><b>מזג אוויר</b><small>תחזית לכל יעד בתאריכים שלנו</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="weather">
     <div class="eyebrow">Expected weather</div>
@@ -1001,14 +1008,7 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <p class="anote">כל כפתור "ניווט" פותח את המקום ב-Google Maps. כדאי לבדוק שעות פתיחה לפני שיוצאים.</p>
   </section>
   </div></details>
-  <details class="fold" id="fold-albums"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg></span><span class="ft"><b>אלבומים</b><small>תמונות מכל יעד</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
-  <section id="albums">
-    <div class="eyebrow">Albums</div>
-    <h2>אלבום לכל יעד</h2>
-    <div class="atabs" id="atabs" role="tablist" aria-label="יעדים"></div>
-    <div class="glass album" id="album" role="tabpanel"></div>
-  </section>
-  </div></details>
+  <div class="ghd">חשוב</div>
   <details class="fold nye-fold" id="fold-nye"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></span><span class="ft"><b>סילבסטר בקופיפי</b><small>31.12 · ספירה לאחור וזיקוקים</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="nye">
     <div class="eyebrow">New Year's Eve · Ko Phi Phi</div>
@@ -1108,16 +1108,7 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     </div>
   </section>
   </div></details>
-
-  <div class="folders-hd"><div class="eyebrow">More</div><h2>עוד בתיקיות</h2></div>
-  <details class="fold" id="fold-cards"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></span><span class="ft"><b>גלויות מהדרך</b><small>גלויה לכל יעד</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
-  <section id="cards">
-    <div class="eyebrow">Greetings from</div>
-    <h2>גלויות מהדרך</h2>
-    <p style="margin:-6px 0 16px;font-size:14px;opacity:.9">לחצו על גלויה כדי להפוך אותה: מאחור יש את המלון, הכתובת והטלפון.</p>
-    <div class="cards" id="pcards"></div>
-  </section>
-  </div></details>
+  <div class="ghd">לפני שטסים</div>
   <details class="fold" id="fold-prep"><summary class="glass"><span class="fi"><svg viewBox="0 0 24 24"><path d="M4 6h2M4 12h2M4 18h2M9 6h11M9 12h11M9 18h11"/></svg></span><span class="ft"><b>לפני שטסים</b><small>תזכורות · מה נשאר לסגור · רשימת אריזה</small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body">
   <section id="alerts">
     <div class="eyebrow">Reminders</div>
@@ -1149,6 +1140,12 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
   </section>
   </div></details>
 
+  <section id="cards" hidden>
+    <div class="eyebrow">Greetings from</div>
+    <h2>גלויות מהדרך</h2>
+    <p style="margin:-6px 0 16px;font-size:14px;opacity:.9">לחצו על גלויה כדי להפוך אותה: מאחור יש את המלון, הכתובת והטלפון.</p>
+    <div class="cards" id="pcards"></div>
+  </section>
   <section id="photos" hidden>
     <div class="eyebrow">Photo route</div>
     <h2>מסלול התמונות</h2>
@@ -1197,7 +1194,6 @@ body{text-shadow:0 1px 2px rgba(5,18,55,.45),0 0 16px rgba(5,18,55,.28)}
     <a href="#map" data-nav="map"><svg viewBox="0 0 24 24"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2z M9 4v14M15 6v14"/></svg>מפה</a>
     <a href="#weather" data-nav="weather"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="4"/><path d="M8 20h9a4 4 0 0 0 0-8 5 5 0 0 0-9 1 3.5 3.5 0 0 0 0 7z"/></svg>תחזית</a>
     <a href="#attractions" data-nav="attractions"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>אטרקציות</a>
-    <a href="#albums" data-nav="albums"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg>אלבומים</a>
     <a href="#info" data-nav="info"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg>חירום</a>
   </div>
 </nav>
@@ -1241,6 +1237,7 @@ const STOPS=[
 const FLIGHTS=[
   {fn:"LY85",air:"El Al",from:"TLV",to:"BKK",fc:"Tel Aviv",tc:"Bangkok",date:"שלישי 22.12.2026",dep:"23:35",arr:"15:45",arrNote:"+1",dur:"11:10",ac:"Boeing 787-8",term:"טרמינל 3",fr:"ly85",note:"נחיתה ב-23.12 בסוברנבומי. יש 3 שעות ו-55 דקות עד הטיסה לפוקט."},
   {fn:"PG279",air:"Bangkok Airways",from:"BKK",to:"HKT",fc:"Bangkok",tc:"Phuket",date:"רביעי 23.12.2026",dep:"19:40",arr:"21:15",arrNote:"",dur:"1:35",ac:"Airbus A319",term:"טרמינל פנים",fr:"pg279",note:"טיסת פנים. נוחתים בטרמינל הפנים של פוקט."},
+  {fn:"VZ2341",air:"Thai Vietjet Air",from:"KBV",to:"BKK",fc:"Krabi",tc:"Bangkok",date:"ראשון 3.1.2027",dep:"11:10",arr:"12:35",arrNote:"",dur:"1:25",ac:"—",term:"סוברנבומי",fr:"vz2341",note:"טיסת פנים מקראבי. להגיע לשדה ב-09:40. נוחתים בסוברנבומי ב-12:35."},
   {fn:"LY86",air:"El Al",from:"BKK",to:"TLV",fc:"Bangkok",tc:"Tel Aviv",date:"רביעי 6.1.2027",dep:"20:00",arr:"02:25",arrNote:"+1",dur:"11:25",ac:"Boeing 787-8",term:"טרמינל 3 בנתב״ג",fr:"ly86",note:"נחיתה בנתב״ג ביום חמישי 7.1 ב-02:25."}
 ];
 const REMINDERS=[
@@ -1253,7 +1250,7 @@ const REMINDERS=[
   {id:"tophiphi",t:"2026-12-29T09:00:00+07:00",what:"מעבורת לקופיפי",sub:"צ׳ק-אין ב-Phitarom מ-14:00"},
   {id:"nye",t:"2026-12-31T23:30:00+07:00",what:"עוד חצי שעה ל-2027",sub:"ספירה לאחור על החוף בקופיפי"},
   {id:"back",t:"2027-01-02T10:00:00+07:00",what:"מעבורת חזרה לקראבי",sub:"צ׳ק-אאוט עד 11:00"},
-  {id:"tobkk",t:"2027-01-03T10:00:00+07:00",what:"טיסה מקראבי לבנגקוק",sub:"עוד לא הוזמנה"},
+  {id:"tobkk",t:"2027-01-03T11:10:00+07:00",what:"VZ2341 מקראבי לבנגקוק",sub:"Thai Vietjet · להגיע לשדה ב-09:40 · נחיתה בסוברנבומי 12:35"},
   {id:"ci2",t:"2027-01-05T20:00:00+07:00",what:"נפתח צ׳ק-אין אונליין ל-LY86",sub:"24 שעות לפני הטיסה הביתה",link:"https://www.elal.com",linkT:"לאל על"},
   {id:"ly86",t:"2027-01-06T20:00:00+07:00",end:"2027-01-07T02:25:00+02:00",what:"טסים הביתה: LY86",sub:"להגיע לסוברנבומי עד 17:00"}
 ];
@@ -1265,7 +1262,7 @@ const TODO=[
     {id:"h-pp",t:"Phitarom Phi Phi Resort",s:"29.12–2.1",fixed:true},
     {id:"h-kn",t:"Wanarom Residence Hotel",s:"2–3.1",fixed:true}]},
   {g:"תחבורה",items:[
-    {id:"f-kbv",t:"טיסה מקראבי לבנגקוק ב-3.1",s:"מ-KBV ל-BKK או DMK"},
+    {id:"f-kbv",t:"טיסה מקראבי לבנגקוק",s:"VZ2341 · 3.1 · 11:10",fixed:true},
     {id:"t-hkt",t:"הסעה משדה התעופה של פוקט למלון",s:"נוחתים ב-23.12 ב-21:15"},
     {id:"t-kr",t:"הסעה מפוקט לקראבי ב-26.12",s:"מונית או מיניוואן, כשעתיים וחצי"},
     {id:"b-pp1",t:"מעבורת מאאו נאנג לקופיפי ב-29.12",s:"להזמין מראש בעונה"},
@@ -1360,7 +1357,7 @@ function setSky(){
 /* ---------- hero ring ---------- */
 const RING=[
   {k:"phuket",en:"PHUKET",d:"23–26.12",go:"phuket"},
-  {k:"us",en:"TOMER & BRIT",d:"2026",go:"albums"},
+  {k:"us",en:"TOMER & BRIT",d:"2026",go:"plan"},
   {k:"krabi",en:"KRABI",d:"26–29.12",go:"krabi"},
   {k:"pass",en:"LY85",d:"22.12 · 23:35",go:"flights"},
   {k:"phiphi",en:"PHI PHI",d:"29.12–2.1",go:"phiphi"},
@@ -1382,8 +1379,8 @@ const RING=[
   requestAnimationFrame(()=>{const first=cards[1]||cards[0];el.scrollLeft=first.offsetLeft-(el.clientWidth-first.offsetWidth)/2;upd()});
 })();
 function jump(go){
-  if(STOPS.some(s=>s.id===go)){selectStop(go);const pc=document.getElementById("pc-"+go);(pc||$("#cards")).scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"});if(pc)setTimeout(()=>pc.classList.add("flip"),600);return}
-  document.getElementById(go).scrollIntoView({behavior:reduce?"auto":"smooth"});
+  if(STOPS.some(s=>s.id===go)){selectStop(go);$("#map").scrollIntoView({behavior:reduce?"auto":"smooth"});return}
+  const el=document.getElementById(go);if(el)el.scrollIntoView({behavior:reduce?"auto":"smooth"});
 }
 
 /* ---------- clocks + countdown ---------- */
@@ -1494,7 +1491,7 @@ $("#passes").innerHTML=FLIGHTS.map((f,i)=>`
       <div class="note">${D(f.note)}</div>
     </div>
     <div class="stub"><div class="fn">${f.fn}</div><div class="barcode" aria-hidden="true"></div><a href="https://www.flightradar24.com/data/flights/${f.fr}" target="_blank" rel="noopener">מעקב חי</a></div>
-  </article>${i===1?`<div class="pass missing"><b><span dir="ltr" class="num">3.1</span> · קראבי ← בנגקוק</b><div style="font-size:14px;opacity:.9;margin-top:4px">טיסת פנים שעוד לא הוזמנה. AirAsia, Thai Lion ו-Thai Smile טסות מ-KBV ל-DMK או BKK בערך שעה ועשרים.</div></div>`:""}`).join("");
+  </article>`).join("");
 
 /* ---------- map ---------- */
 const svg=$("#mapsvg");
@@ -1809,47 +1806,9 @@ renderBudget();
 /* ---------- nav highlight ---------- */
 const navs=[...document.querySelectorAll(".nav a")];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navs.forEach(a=>a.classList.toggle("on",a.dataset.nav===e.target.id))}})},{rootMargin:"-45% 0px -50% 0px"});
-["count","alerts","map","flights","weather","cards","albums","nye","todo","pack","info","attractions","hotels","plan","transfers"].forEach(id=>io.observe(document.getElementById(id)));
+["count","alerts","map","flights","weather","cards","nye","todo","pack","info","attractions","hotels","plan","transfers"].forEach(id=>io.observe(document.getElementById(id)));
 
 /* ---------- shared features (light up when the viewer supports them) ---------- */
-/* ---------- albums per destination ---------- */
-/* Shared photos live in the site under photos/<stop>/ and are listed here. Photos a viewer adds stay on that phone (IndexedDB). */
-const ALBUMS={phuket:[],krabi:[],phiphi:[],krabi2:[],bangkok:[]};
-const ADB={open(){return new Promise((res,rej)=>{try{const r=indexedDB.open("tb-albums",1);r.onupgradeneeded=()=>r.result.createObjectStore("p",{keyPath:"id"});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}})},
-  async all(){try{const d=await this.open();return await new Promise(res=>{const out=[],c=d.transaction("p").objectStore("p").openCursor();c.onsuccess=()=>{const x=c.result;if(x){out.push(x.value);x.continue()}else res(out)};c.onerror=()=>res(out)})}catch(e){return[]}},
-  async put(o){const d=await this.open();return new Promise((res,rej)=>{const t=d.transaction("p","readwrite");t.objectStore("p").put(o);t.oncomplete=res;t.onerror=()=>rej(t.error)})},
-  async del(id){const d=await this.open();return new Promise(res=>{const t=d.transaction("p","readwrite");t.objectStore("p").delete(id);t.oncomplete=res;t.onerror=res})}};
-async function shrink(file){try{const bm=await createImageBitmap(file);const k=Math.min(1,1800/Math.max(bm.width,bm.height));const c=document.createElement("canvas");c.width=Math.round(bm.width*k);c.height=Math.round(bm.height*k);c.getContext("2d").drawImage(bm,0,0,c.width,c.height);
-  return await new Promise(r=>c.toBlob(b=>r(b||file),"image/jpeg",.86))}catch(e){return file}}
-let ACUR=(()=>{const n=Date.now(),s=STOPS.find(x=>n>=dateOnly(x.from)&&n<dateOnly(x.to));return s?s.id:"phuket"})(),LOCAL=[],URLS=[],LBITEMS=[],LBI=0;
-function albumItems(id){return ALBUMS[id].map(p=>({src:typeof p==="string"?p:p.src,cap:p.cap||"",local:false})).concat(LOCAL.filter(p=>p.stop===id).sort((a,b)=>a.at-b.at).map(p=>({src:p.url,cap:"",local:true,id:p.id})))}
-function renderTabs(){$("#atabs").innerHTML=STOPS.map(s=>{const n=albumItems(s.id).length;return `<button class="atab" type="button" role="tab" data-a="${s.id}" aria-selected="${s.id===ACUR}">${s.he}${s.id==="krabi2"?" נוי":""}<small>${fmtRange(s)}${n?" · "+n:""}</small></button>`}).join("")}
-function renderAlbum(){const s=STOPS.find(x=>x.id===ACUR),items=albumItems(ACUR);LBITEMS=items;
-  const add=`<label class="add"><b>+</b>הוספת תמונות<input type="file" accept="image/*" multiple id="aInput"></label>`;
-  $("#album").innerHTML=`<div class="ah"><h3>${s.he}${s.id==="krabi2"?" נוי":""}${s.area?` <span style="font-family:var(--f-body)">${s.area}</span>`:""}</h3><span>${items.length} ${items.length===1?"תמונה":"תמונות"}</span></div>`+
-    (items.length?`<div class="ag">${items.map((p,i)=>`<button class="t" type="button" data-i="${i}" aria-label="פתיחת תמונה ${i+1}">${p.local?'<span class="mine">מהטלפון</span>':""}<img src="${esc(p.src)}" alt="" loading="lazy"></button>`).join("")}${add}</div>`
-     :`<div class="aempty">${art(s.art)}<div class="msg">עוד אין כאן תמונות מ${s.he}. בזמן הטיול הוסיפו מהטלפון, או שלחו לתומר ונעלה לאלבום של שניכם.</div></div><div class="ag">${add}</div>`)+
-    `<p class="anote">תמונות שמוסיפים מהטלפון נשמרות רק בטלפון הזה. כדי שיופיעו לשניכם, שולחים אותן לתומר והן נכנסות לאלבום באתר.</p>`}
-async function loadLocal(){URLS.forEach(u=>URL.revokeObjectURL(u));URLS=[];LOCAL=(await ADB.all()).map(p=>{const url=URL.createObjectURL(p.blob);URLS.push(url);return{...p,url}});renderTabs();renderAlbum()}
-$("#atabs").addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;ACUR=b.dataset.a;renderTabs();renderAlbum()});
-$("#album").addEventListener("change",async e=>{if(e.target.id!=="aInput")return;const files=[...e.target.files];if(!files.length)return;
-  const lab=e.target.closest(".add");if(lab)lab.firstChild.nextSibling.textContent="שומר…";
-  try{for(const f of files){const blob=await shrink(f);await ADB.put({id:"p"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),stop:ACUR,at:Date.now(),blob})}}
-  catch(err){if(lab)lab.firstChild.nextSibling.textContent="לא הצלחתי לשמור. נסו שוב"}
-  loadLocal()});
-function openLb(i){LBI=i;let lb=$("#lb");if(!lb){lb=document.createElement("div");lb.className="lb";lb.id="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-label","תמונה מהאלבום");
-    lb.innerHTML=`<div class="lbtop"><button type="button" data-lb="x">סגירה</button><span class="cnt" id="lbCnt"></span><button type="button" data-lb="del" id="lbDel" hidden>מחיקה</button></div><img id="lbImg" alt=""><div class="lbbot"><button type="button" data-lb="next" aria-label="הבאה">→</button><button type="button" data-lb="prev" aria-label="הקודמת">←</button></div>`;
-    document.body.appendChild(lb);
-    lb.addEventListener("click",async e=>{const b=e.target.closest("[data-lb]");if(!b){if(e.target===lb)closeLb();return}const k=b.dataset.lb;
-      if(k==="x")closeLb();if(k==="next")showLb(LBI+1);if(k==="prev")showLb(LBI-1);
-      if(k==="del"){if(!b.dataset.armed){b.dataset.armed=1;b.textContent="למחוק? לחצו שוב";return}const it=LBITEMS[LBI];closeLb();await ADB.del(it.id);loadLocal()}});
-    let sx=null;lb.addEventListener("pointerdown",e=>{sx=e.clientX});lb.addEventListener("pointerup",e=>{if(sx===null)return;const dx=e.clientX-sx;sx=null;if(Math.abs(dx)>50)showLb(LBI+(dx<0?1:-1))});
-    document.addEventListener("keydown",e=>{if(!$("#lb")||$("#lb").hidden)return;if(e.key==="Escape")closeLb();if(e.key==="ArrowLeft")showLb(LBI+1);if(e.key==="ArrowRight")showLb(LBI-1)})}
-  lb.hidden=false;document.documentElement.style.overflow="hidden";showLb(i)}
-function showLb(i){const n=LBITEMS.length;if(!n)return closeLb();LBI=(i+n)%n;const it=LBITEMS[LBI];$("#lbImg").src=it.src;$("#lbCnt").textContent=(LBI+1)+" / "+n;const d=$("#lbDel");d.hidden=!it.local;delete d.dataset.armed;d.textContent="מחיקה"}
-function closeLb(){const lb=$("#lb");if(lb)lb.hidden=true;document.documentElement.style.overflow=""}
-$("#album").addEventListener("click",e=>{const t=e.target.closest(".t");if(t)openLb(+t.dataset.i)});
-renderTabs();renderAlbum();loadLocal();
 
 /* ---------- attractions per destination ---------- */
 const ATTR={
@@ -1926,7 +1885,7 @@ const HOTELS=[
  {stop:"phuket",name:"The BluEco Hotel",area:"פוקט · חוף קאטה",in:"2026-12-23",out:"2026-12-26",tin:"14:00",tout:"12:00",room:"חדר דלוקס, זוגי או טווין, עם נוף לגינה · כולל ארוחת בוקר",addr:"100/75 Kata Road, Kata, Phuket 83100",phones:["+66 92 593 5278","+66 83 824 6997"],note:"שתי הזמנות: 23–25.12 ו-25–26.12. נוחתים ב-21:15, אז מגיעים למלון בערך ב-22:30."},
  {stop:"krabi",name:"Frank Ao Nang Krabi Resort",area:"קראבי · אאו נאנג",in:"2026-12-26",out:"2026-12-29",tin:"",tout:"",room:"26–28.12 חדר דלוקס · 28–29.12 בונגלו עם נוף לגן",addr:"901 Soi 13, Moo 2, Ao Nang, Krabi 81180",phones:["+66 64 030 6786"],note:"ב-28.12 עוברים מהחדר לבונגלו."},
  {stop:"phiphi",name:"Phitarom Phi Phi Resort",area:"קופיפי",in:"2026-12-29",out:"2027-01-02",tin:"14:00",tout:"11:00",room:"",addr:"Ko Phi Phi, Krabi",phones:[],note:"כאן חוגגים את השנה החדשה."},
- {stop:"krabi2",name:"Wanarom Residence Hotel",area:"קראבי נוי, ליד שדה התעופה",in:"2027-01-02",out:"2027-01-03",tin:"",tout:"",room:"חדר דלוקס טווין",addr:"351 Moo 12, Petkasem Rd, Krabi Noi, Krabi 81000",phones:[],note:"לילה אחד לפני הטיסה לבנגקוק."},
+ {stop:"krabi2",name:"Wanarom Residence Hotel",area:"קראבי נוי, ליד שדה התעופה",in:"2027-01-02",out:"2027-01-03",tin:"",tout:"",room:"חדר דלוקס טווין",addr:"351 Moo 12, Petkasem Rd, Krabi Noi, Krabi 81000",phones:[],note:"לילה אחד לפני הטיסה לבנגקוק. ב-3.1 הטיסה VZ2341 ב-11:10, השדה במרחק 10 דקות."},
  {stop:"bangkok",name:"",area:"בנגקוק",in:"2027-01-03",out:"2027-01-06",tin:"",tout:"",room:"",addr:"",phones:[],note:"ב-6.1 הטיסה הביתה ב-20:00, להגיע לסוברנבומי עד 17:00."}];
 function hdate(iso){const d=new Date(iso+"T12:00:00+07:00");return{day:fmt("Asia/Bangkok",{weekday:"long"}).format(d),dm:fmt("Asia/Bangkok",{day:"numeric",month:"numeric"}).format(d)}}
 function renderHotels(){const now=Date.now();
@@ -1969,7 +1928,7 @@ const PLAN=[
  {d:"2026-12-31",stop:"phiphi",t:"סילבסטר",items:["בוקר: האי במבו","ערב: ארוחה מוקדמת ונקודת מפגש","00:00 · 2027 על החוף בקופיפי"],nye:1},
  {d:"2027-01-01",stop:"phiphi",t:"שנה טובה",items:["בוקר עצל, פותחים את קפסולת הזמן","מאנקי ביץ׳ בקיאק"]},
  {d:"2027-01-02",stop:"krabi2",t:"חוזרים לקראבי",items:["צ׳ק-אאוט עד 11:00 ומעבורת לקראבי","צ׳ק-אין ב-Wanarom","ערב: שוק הלילה של קראבי טאון"]},
- {d:"2027-01-03",stop:"bangkok",t:"טסים לבנגקוק",items:["טיסה מקראבי לבנגקוק (עוד לא הוזמנה)","אחר הצהריים: שוק צ׳טוצ׳אק"]},
+ {d:"2027-01-03",stop:"bangkok",t:"טסים לבנגקוק",items:["09:40 · בשדה התעופה של קראבי","11:10 · VZ2341 לבנגקוק, נחיתה ב-12:35 בסוברנבומי","אחר הצהריים: שוק צ׳טוצ׳אק"]},
  {d:"2027-01-04",stop:"bangkok",t:"מקדשים ונהר",items:["בוקר מוקדם: הארמון המלכותי","וואט פו","שקיעה מול וואט ארון"]},
  {d:"2027-01-05",stop:"bangkok",t:"צ׳יינה טאון ושווקים",items:["יום חופשי בעיר","ערב: אוכל רחוב ביאוורט או ג׳וד פיירס"]},
  {d:"2027-01-06",stop:"bangkok",t:"יום אחרון",items:["קניות אחרונות","17:00 · בסוברנבומי","20:00 · LY86 הביתה"]}];
@@ -1978,7 +1937,7 @@ const TRANSFERS=[
  {id:"t-kr",d:"2026-12-26",from:"קאטה, פוקט",to:"Frank Ao Nang, קראבי",how:"מונית פרטית או מיניוואן",dur:"כשעתיים וחצי",price:"מונית בערך ฿2,500–3,000",tip:"יוצאים אחרי ארוחת הבוקר, צ׳ק-אאוט עד 12:00."},
  {id:"b-pp1",d:"2026-12-29",from:"אאו נאנג",to:"קופיפי (Tonsai Pier)",how:"מעבורת, בדרך כלל עם איסוף מהמלון",dur:"שעה וחצי עד שעתיים",price:"בערך ฿450–650 לאדם",tip:"בעונה כדאי להזמין מראש. באי משלמים אגרת כניסה קטנה."},
  {id:"b-pp2",d:"2027-01-02",from:"קופיפי",to:"נמל קראבי, ומשם Wanarom",how:"מעבורת ואז מונית",dur:"כשעתיים בסך הכול",price:"בערך ฿400–500 לאדם",tip:"צ׳ק-אאוט עד 11:00, יש מעבורות בבוקר."},
- {id:"f-kbv",d:"2027-01-03",from:"שדה התעופה קראבי (KBV)",to:"בנגקוק (DMK או BKK)",how:"טיסת פנים",dur:"כשעה ועשרים",price:"תלוי בחברה",tip:"עוד לא הוזמן. AirAsia, Thai Lion ו-Thai Smile טסות בקו."},
+ {id:"f-kbv",booked:1,d:"2027-01-03",from:"Wanarom ← שדה התעופה קראבי",to:"סוברנבומי, בנגקוק",how:"VZ2341 · Thai Vietjet Air",dur:"11:10–12:35",price:"הוזמן",tip:"מהמלון לשדה כ-10 דקות. להגיע ב-09:40. מסוברנבומי למרכז העיר: מונית או Airport Rail Link."},
  {id:"t-bkk",d:"2027-01-06",from:"המלון בבנגקוק",to:"סוברנבומי",how:"מונית או Grab",dur:"45 דקות עד שעה וחצי",price:"בערך ฿400–600 כולל כבישי אגרה",tip:"יוצאים עד 15:30 כדי להגיע ב-17:00. הפקקים קשים."}];
 const FOOD={
  phuket:[{n:"One Chun",w:"מטבח דרום תאילנדי ביתי בעיר העתיקה",q:"One Chun Phuket Old Town"},{n:"Raya Restaurant",w:"קארי סרטנים מפורסם, בעיר העתיקה",q:"Raya Restaurant Phuket"},{n:"The Boathouse",w:"ארוחת ערב מיוחדת על חוף קאטה",q:"The Boathouse Kata Beach"}],
@@ -1993,7 +1952,7 @@ function renderPlan(){const today=thaiToday();
   $("#planList").innerHTML=PLAN.map((p,i)=>{const x=dd(p.d),past=p.d<today,cur=p.d===today;
     return `<article class="glass pday${cur?" cur":""}${past?" past":""}${p.nye?" nye":""}" id="day-${p.d}"><div class="pdh"><div class="pdd"><b class="num">${x.dm}</b><small>${x.wd}</small></div><div class="pdt"><b>${p.t}</b><small>${i===0?"יום 0":"יום "+i}${p.stop?" · "+stopName(p.stop):""}</small></div>${cur?'<span class="htag now">היום</span>':""}</div>
       <ul>${p.items.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></article>`}).join("")}
-function renderTransfers(){$("#trList").innerHTML=TRANSFERS.map(t=>{const x=dd(t.d),ok=!!DONE[t.id];
+function renderTransfers(){$("#trList").innerHTML=TRANSFERS.map(t=>{const x=dd(t.d),ok=!!(t.booked||DONE[t.id]);
   return `<article class="glass trc"><div class="trh"><div class="pdd"><b class="num">${x.dm}</b><small>${x.wd}</small></div><div class="trr"><b>${esc(t.from)}</b><i aria-hidden="true"></i><b>${esc(t.to)}</b></div><span class="htag ${ok?"ok":"todo"}">${ok?"הוזמן ✓":"לסגור"}</span></div>
     <div class="kv"><span>איך</span><b>${esc(t.how)}</b></div><div class="kv"><span>כמה זמן</span><b>${esc(t.dur)}</b></div><div class="kv"><span>מחיר משוער</span><b>${esc(t.price)}</b></div><p class="hnote">${esc(t.tip)}</p></article>`}).join("")}
 function renderFood(){const id=XCUR,list=FOOD[id]||[];const box=$("#foodList");if(!box)return;
